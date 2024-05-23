@@ -26,4 +26,12 @@ public class Board{
     void drawShips(){
       
     }  
+    
+    void addShip(Ship s){
+      ships.add(s);
+    }
+    
+    void addPin(Pin p){
+      pins.add(p);
+    }
 }

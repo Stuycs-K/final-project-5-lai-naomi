@@ -5,14 +5,16 @@ public class Ship{
   int xpos;
   int ypos;
   String rotation;
+  PImage boat;
   
-  public Ship(String typeName, int length, boolean vis, int x, int y){
+  public Ship(String typeName, int length, boolean vis, int x, int y, String imageName){
    type = typeName;
    pins = new int[length];
    visible = vis;   
    xpos = x;
    ypos = y;
    rotation = "up";
+   boat = loadImage(imageName);
   }
   
   void sink(){
