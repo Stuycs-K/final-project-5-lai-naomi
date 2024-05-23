@@ -1,9 +1,10 @@
-public class Ship implements Rotate, Movable{
+public class Ship{
   String type;
   int[] pins;
   boolean visible;
   int xpos;
   int ypos;
+  String rotation;
   
   public Ship(String typeName, int length, boolean vis, int x, int y){
    type = typeName;
@@ -11,6 +12,7 @@ public class Ship implements Rotate, Movable{
    visible = vis;   
    xpos = x;
    ypos = y;
+   rotation = "up";
   }
   
   void sink(){

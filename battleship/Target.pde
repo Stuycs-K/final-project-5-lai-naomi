@@ -1,4 +1,4 @@
-public class Target implements Movable{
+public class Target{
   int xpos;
   int ypos;
   
