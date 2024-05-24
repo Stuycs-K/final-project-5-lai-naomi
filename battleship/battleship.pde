@@ -24,8 +24,13 @@ void setup(){
   player = new Player(plrBoard);
   opponent = new Opponent(oppBoard);
   
-  // Ship(String typeName, int length, boolean vis, int x, int y)
-  Ship s1 = new Ship("1x4", 4, true, 5, 0);
+  
+  plrBoard.addPin(new Pin(setsize + 50, 100));
+  plrBoard.drawPins();
+  //   public Ship(int x, int y, int l, boolean v){
+  Ship s1 = new Ship(setsize + 100, 100, 4, true);
+  plrBoard.addShip(s1);
+  plrBoard.drawShips();
   
 }
 
