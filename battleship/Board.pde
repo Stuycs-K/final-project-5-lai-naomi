@@ -3,9 +3,7 @@ public class Board{
     ArrayList<Ship> ships = new ArrayList<Ship>();
     int xpos;
     int ypos;
-    PImage grid = loadImage("grid.png");
-    PImage pinImage = loadImage("pinImage.png");
-    PImage testShip = loadImage("testship.jpg");
+    PImage grid = loadImage("grid.png");    
     
     public Board(int x, int y){
       pins = new ArrayList<Pin>();
@@ -14,7 +12,6 @@ public class Board{
       ypos = y;
       
       grid.resize(380,0);
-      pinImage.resize(25,0);
     }
     
     void drawGrid(){      
@@ -23,21 +20,26 @@ public class Board{
     
     void drawPins(){
       for(Pin pin : pins){
-        image(pinImage, pin.xpos, pin.ypos);
+        image(pin.pinImage, pin.xpos, pin.ypos);
       }
     }
     
     void drawShips(){
       for(Ship ship : ships){
         if(ship.visible==true){
-          testShip.resize(ship.pins.length * 30, 25);
-          image(testShip, ship.xpos, ship.ypos);
+          image(ship.testShip, ship.xpos, ship.ypos);
         }
       }
     }
     
     void addShip(Ship s){
       ships.add(s);
+    }
+    
+    void addShip(Ship[] s){
+      for(Ship ship : s){
+        ships.add(ship);
+      }
     }
     
     void addPin(Pin p){

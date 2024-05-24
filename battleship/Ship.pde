@@ -4,6 +4,7 @@ public class Ship{
   int xpos;
   int ypos;
   String rotation;
+  PImage testShip = loadImage("testship.jpg");
   
   public Ship(int x, int y, int l, boolean v){
    xpos = x;
@@ -11,6 +12,7 @@ public class Ship{
    pins = new int[l];
    visible = v;
    rotation = "up";
+   testShip.resize(25, pins.length * 30);
   }
   
   void sink(){

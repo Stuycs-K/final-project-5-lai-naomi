@@ -11,10 +11,11 @@ void setup(){
   // frame
   size(580,800);
   bsize = height/2 - 50;
-  setsize = 180;
+  setsize = 130;
   rect(0,0,setsize,height);
   rect(setsize,0,width-setsize,height/2);
   rect(setsize,height/2,width-setsize,height/2);
+  phase = "setup";
   
   // boards
   oppBoard = new Board(setsize+10, 5);
@@ -24,20 +25,21 @@ void setup(){
   player = new Player(plrBoard);
   opponent = new Opponent(oppBoard);
   
-  
-  plrBoard.addPin(new Pin(setsize + 50, 100));
-  plrBoard.drawPins();
-  //   public Ship(int x, int y, int l, boolean v){
-  Ship s1 = new Ship(setsize + 100, 100, 4, true);
-  plrBoard.addShip(s1);
-  plrBoard.drawShips();
-  
-}
+  //boats
+  // Ship(int x, int y, int l, boolean v)
+   Ship s2 = new Ship(20, 20, 2, true);
+   Ship s3a = new Ship(20, 95, 3, true);
+   Ship s3b = new Ship(20, 200, 3, true);
+   Ship s4 = new Ship(20, 305, 4, true);
+   Ship s5 = new Ship(20, 440, 5, true);   
+   plrBoard.addShip(new Ship[]{s2, s3a, s3b, s4, s5});
+  }
 
 void draw(){
-  
+  plrBoard.drawShips();
 }
 
 void showInfo(){
-  
+  String print = "Phase: " + phase;
+  text(print, height-200, 20);//, height-200);
 }
