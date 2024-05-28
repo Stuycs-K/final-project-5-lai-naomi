@@ -3,11 +3,11 @@ public class Player{
   Target selection;
   Board board;
   
-  public Player(){
+  public Player(Board b){
      turn = false;
      phase = "setup";
      selection = new Target();
-     board = new Board();
+     board = b;
   }
   
   void confirmTarget(){
