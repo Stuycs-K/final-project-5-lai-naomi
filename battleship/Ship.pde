@@ -4,7 +4,8 @@ public class Ship{
   int xpos;
   int ypos;
   String rotation;
-  PImage testShip = loadImage("testship.jpg");
+  PImage testShip = loadImage("boat.png");
+  
   
   public Ship(int x, int y, int l, boolean v){
    xpos = x;
@@ -12,15 +13,20 @@ public class Ship{
    pins = new int[l];
    visible = v;
    rotation = "up";
-   testShip.resize(25, pins.length * 30);
+   testShip.resize(100, 0);//pins.length * 30);
+   //rect(xpos, ypos, 10, 10);
   }
   
   void sink(){
     
   }
   
-  void drag(){
-    
+  boolean drag(int x, int y){
+    int lx = xpos;
+    int rx = xpos + testShip.width;
+    int uy = ypos;
+    int dy = ypos + testShip.height;
+    return(x >= lx && x <= rx && y >= uy && y <= dy);
   }
   
   void r(){

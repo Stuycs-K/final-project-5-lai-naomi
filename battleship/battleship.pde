@@ -3,25 +3,25 @@ Opponent opponent;
 Board oppBoard;
 Board plrBoard;
 String phase;
+PImage lines;
 
 int bsize;
 int setsize;
 
+Ship target;
+
 void setup(){
+  lines = loadImage("lines.png");
+  lines.resize(width, height);
   // frame
   size(580,800);
   bsize = height/2 - 50;
   setsize = 130;
-  rect(0,0,setsize,height);
-  rect(setsize,0,width-setsize,height/2);
-  rect(setsize,height/2,width-setsize,height/2);
   phase = "setup";
   
   // boards
   oppBoard = new Board(setsize+10, 5);
-  oppBoard.drawGrid();
   plrBoard = new Board(setsize+10, 5 + height/2);
-  plrBoard.drawGrid();
   player = new Player(plrBoard);
   opponent = new Opponent(oppBoard);
   
@@ -33,13 +33,38 @@ void setup(){
    Ship s4 = new Ship(20, 305, 4, true);
    Ship s5 = new Ship(20, 440, 5, true);   
    plrBoard.addShip(new Ship[]{s2, s3a, s3b, s4, s5});
+   target = s2;
   }
 
 void draw(){
+  background(255);
+  image(lines, 0, 0);
+  plrBoard.drawGrid();
+  oppBoard.drawGrid();
   plrBoard.drawShips();
+  showInfo();
+}
+
+void mouseClicked(){
+   for(Ship ship: plrBoard.ships){
+     if(ship.drag(mouseX, mouseY) == true){
+       target = ship;
+       break;
+     }
+   }
+  }
+  
+void mouseDragged(){
+  if(target.drag(mouseX, mouseY)){
+    target.xpos = mouseX;
+    target.ypos = mouseY;
+  }
 }
 
 void showInfo(){
   String print = "Phase: " + phase;
-  text(print, height-200, 20);//, height-200);
+  fill(0,0,0);
+  text(print, 20, height-10);//, height-200);
+  //textSize(400);
+  //text("hello", 100, 100);
 }
