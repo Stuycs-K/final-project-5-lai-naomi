@@ -3,10 +3,10 @@ public class Opponent{
  Target selection;
  Board board;
  
- public Opponent(){
+ public Opponent(Board b){
   turn = false;
   selection = new Target();
-  board = new Board();
+  board = b;
  }
  
  void wait(int x){
