@@ -13,7 +13,7 @@ public class Ship{
    pins = new int[l];
    visible = v;
    rotation = "up";
-   testShip.resize(100, 0);//pins.length * 30);
+   testShip.resize(0, 30);//pins.length * 30);
    //rect(xpos, ypos, 10, 10);
   }
   
@@ -30,7 +30,7 @@ public class Ship{
   }
   
   void r(){
-    
+    rotateZ(PI);
   }
   
   void limitMovement(){
