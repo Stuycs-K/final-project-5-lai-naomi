@@ -39,28 +39,27 @@ void setup(){
 
 void draw(){
   background(255);
-  //image(lines, 0, 0);
-  //plrBoard.drawGrid();
-  //oppBoard.drawGrid();
+  image(lines, 0, 0);
+  plrBoard.drawGrid();
+  oppBoard.drawGrid();
   plrBoard.drawShips();
   showInfo();
 }
-
-void mouseClicked(){
-   for(Ship ship: plrBoard.ships){
-     if(ship.drag(mouseX, mouseY) == true){
-       target = ship;
-       //System.out.println("target " + target.pins.length);
-       t=true;
-       break;
-     }
-   }
-  }
-  
 void mouseDragged(){
+  if(!t){
+    for(Ship ship: plrBoard.ships){
+       if(ship.drag(mouseX, mouseY) == true){
+         target = ship;
+         //System.out.println("target " + target.pins.length);
+         t=true;
+         break;
+       }
+     }
+  }
  if(t){
   target.xpos = mouseX; 
   target.ypos = mouseY;
+  target.limitMovement();
  }
 }
 

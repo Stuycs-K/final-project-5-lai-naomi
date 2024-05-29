@@ -32,4 +32,11 @@ public class Ship{
   void r(){
     
   }
+  
+  void limitMovement(){
+   if(xpos >= width) xpos = width-30; 
+   if(xpos <= 0) xpos = 0;
+   if(ypos >= height) ypos = height-30;
+   if(ypos <= 0) ypos = 0;
+  }
 }
