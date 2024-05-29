@@ -9,6 +9,7 @@ int bsize;
 int setsize;
 
 Ship target;
+boolean t;
 
 void setup(){
   lines = loadImage("lines.png");
@@ -38,9 +39,9 @@ void setup(){
 
 void draw(){
   background(255);
-  image(lines, 0, 0);
-  plrBoard.drawGrid();
-  oppBoard.drawGrid();
+  //image(lines, 0, 0);
+  //plrBoard.drawGrid();
+  //oppBoard.drawGrid();
   plrBoard.drawShips();
   showInfo();
 }
@@ -49,22 +50,28 @@ void mouseClicked(){
    for(Ship ship: plrBoard.ships){
      if(ship.drag(mouseX, mouseY) == true){
        target = ship;
+       //System.out.println("target " + target.pins.length);
+       t=true;
        break;
      }
    }
   }
   
 void mouseDragged(){
-  if(target.drag(mouseX, mouseY)){
-    target.xpos = mouseX;
-    target.ypos = mouseY;
-  }
+ if(t){
+  target.xpos = mouseX; 
+  target.ypos = mouseY;
+ }
+}
+
+void mouseReleased(){
+ t=false; 
 }
 
 void showInfo(){
-  String print = "Phase: " + phase;
+  String print = "Phase: " + phase + "\ntarget " + target.pins.length + "\nt " + t;
   fill(0,0,0);
-  text(print, 20, height-10);//, height-200);
+  text(print, 20, height-30);//, height-200);
   //textSize(400);
   //text("hello", 100, 100);
 }
