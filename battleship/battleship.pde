@@ -69,7 +69,7 @@ void mouseReleased(){
 
 void keyPressed(){
   if(key == 'r' && t){
-    System.out.println("r");
+    //System.out.println("r");
     target.r();
   }
 }
