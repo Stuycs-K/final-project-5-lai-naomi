@@ -50,4 +50,11 @@ public class Board{
     void addPin(Pin p){
       pins.add(p);
     }
+    
+    void gridShips(){
+     for(Ship ship : ships){
+      ship.xpos - 168;
+      ship.ypos
+     }
+    }
 }

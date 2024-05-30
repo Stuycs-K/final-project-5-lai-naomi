@@ -84,6 +84,7 @@ void keyPressed(){
   }
   if(key == ' '){
    phase = "player 1 turn";
+   plrBoard.gridShips();
   }
 }
 
