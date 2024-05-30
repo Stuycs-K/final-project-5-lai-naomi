@@ -67,8 +67,15 @@ void mouseReleased(){
  t=false; 
 }
 
+void keyPressed(){
+  if(key == 'r' && t){
+    //System.out.println("r");
+    target.r();
+  }
+}
+
 void showInfo(){
-  String print = "Phase: " + phase + "\ntarget " + target.pins.length + "\nt " + t;
+  String print = "Phase: " + phase + "\ntarget " + target.pins.length;
   fill(0,0,0);
   text(print, 20, height-30);//, height-200);
   //textSize(400);

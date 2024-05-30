@@ -3,7 +3,7 @@ public class Ship{
   boolean visible;
   int xpos;
   int ypos;
-  String rotation;
+  int rotation;
   PImage testShip = loadImage("boat.png");
   
   
@@ -12,8 +12,8 @@ public class Ship{
    ypos = y;
    pins = new int[l];
    visible = v;
-   rotation = "up";
-   testShip.resize(100, 0);//pins.length * 30);
+   rotation = 1;
+   testShip.resize(0, 30);//pins.length * 30);
    //rect(xpos, ypos, 10, 10);
   }
   
@@ -30,7 +30,8 @@ public class Ship{
   }
   
   void r(){
-    
+    rotation++;
+    if(rotation >2) rotation = 1;
   }
   
   void limitMovement(){
