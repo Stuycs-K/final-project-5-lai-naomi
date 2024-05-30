@@ -11,6 +11,9 @@ int setsize;
 Ship target;
 boolean t;
 
+String mx="";
+String my="";
+
 void setup(){
   lines = loadImage("lines.png");
   lines.resize(width, height);
@@ -72,12 +75,17 @@ void keyPressed(){
     //System.out.println("r");
     target.r();
   }
+  if(key == 'a'){
+    mx= "" + mouseX;
+    my = "" + mouseY;
+  }
 }
 
 void showInfo(){
   String print = "Phase: " + phase + "\ntarget " + target.pins.length;
   fill(0,0,0);
   text(print, 20, height-30);//, height-200);
+  text(mx + "," + my, 20, height-50);
   //textSize(400);
   //text("hello", 100, 100);
 }
