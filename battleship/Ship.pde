@@ -45,7 +45,8 @@ public class Ship{
    xpos /= 34;
    xpos *= 34;
    ypos /= 34;
-   ypos *= 34; 
-   System.out.println(xpos +"," + ypos);
+   ypos *= 34;
+   ypos += 10;
+   //System.out.println(xpos +"," + ypos);
   }
 }
