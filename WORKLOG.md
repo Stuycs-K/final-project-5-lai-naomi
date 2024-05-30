@@ -2,9 +2,10 @@
 
 ## GROUP MEMBER 1
 
-### date x
+### 5/29
 
-info
+1. finished dragging-- the boats can be dragged around the board
+2. added boundaries for the boats-- the boats cannot be dragged outside of the window/board
 
 ### date y
 
