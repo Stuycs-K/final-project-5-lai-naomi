@@ -13,7 +13,7 @@ public class Ship{
    pins = new int[l];
    visible = v;
    rotation = 1;
-   testShip.resize(0, 30);//pins.length * 30);
+   testShip.resize(0, 34);//pins.length * 30);
    //rect(xpos, ypos, 10, 10);
   }
   
@@ -39,5 +39,13 @@ public class Ship{
    if(xpos <= 0) xpos = 0;
    if(ypos >= height) ypos = height-30;
    if(ypos <= 0) ypos = 0;
+  }
+  
+  void grid(){
+   xpos /= 34;
+   xpos *= 34;
+   ypos /= 34;
+   ypos *= 34; 
+   System.out.println(xpos +"," + ypos);
   }
 }

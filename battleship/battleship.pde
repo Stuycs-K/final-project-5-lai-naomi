@@ -11,8 +11,8 @@ int setsize;
 Ship target;
 boolean t;
 
-String mx="";
-String my="";
+String mx="-1";
+String my="-1";
 
 void setup(){
   lines = loadImage("lines.png");
@@ -49,21 +49,23 @@ void draw(){
   showInfo();
 }
 void mouseDragged(){
-  if(!t){
-    for(Ship ship: plrBoard.ships){
-       if(ship.drag(mouseX, mouseY) == true){
-         target = ship;
-         //System.out.println("target " + target.pins.length);
-         t=true;
-         break;
+  if(phase == "setup"){
+    if(!t){
+      for(Ship ship: plrBoard.ships){
+         if(ship.drag(mouseX, mouseY) == true){
+           target = ship;
+           //System.out.println("target " + target.pins.length);
+           t=true;
+           break;
+         }
        }
-     }
+    }
+   if(t){
+    target.xpos = mouseX; 
+    target.ypos = mouseY;
+    target.limitMovement();
+   }
   }
- if(t){
-  target.xpos = mouseX; 
-  target.ypos = mouseY;
-  target.limitMovement();
- }
 }
 
 void mouseReleased(){
@@ -78,6 +80,9 @@ void keyPressed(){
   if(key == 'a'){
     mx= "" + mouseX;
     my = "" + mouseY;
+  }
+  if(key == ' '){
+   phase = "player 1 turn";
   }
 }
 
