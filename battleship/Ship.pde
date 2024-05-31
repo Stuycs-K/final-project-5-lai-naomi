@@ -5,6 +5,8 @@ public class Ship{
   int ypos;
   int rotation;
   PImage testShip = loadImage("boat.png");
+  ArrayList<String> locations;
+  String alphabet = "ABCDEFGHIJK";
   
   
   public Ship(int x, int y, int l, boolean v){
@@ -13,8 +15,8 @@ public class Ship{
    pins = new int[l];
    visible = v;
    rotation = 1;
-   testShip.resize(0, 34);//pins.length * 30);
-   //rect(xpos, ypos, 10, 10);
+   testShip.resize(0, 34);
+   locations = new ArrayList<String>();
   }
   
   void sink(){
@@ -46,7 +48,16 @@ public class Ship{
    xpos *= 34;
    ypos /= 34;
    ypos *= 34;
-   ypos += 10;
+   ypos += 5;
    //System.out.println(xpos +"," + ypos);
+  }
+  
+  void loc(){
+    for(int p : pins){
+      String letter = alphabet.substring((xpos - 169)/34,(xpos-169)/34+1);
+      String num = "" + (((ypos - 445)/34) + 1);
+      System.out.println(letter + " " + num);
+      locations.add(letter+num);
+    }
   }
 }

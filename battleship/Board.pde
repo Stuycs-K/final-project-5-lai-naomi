@@ -29,8 +29,11 @@ public class Board{
         if(ship.visible==true){
           translate(ship.xpos, ship.ypos);
           pushMatrix();
-          if(ship.rotation == 2) rotate(PI/2.0);
-          image(ship.testShip, 0, 0);
+          if(ship.rotation == 2){
+            rotate(PI/2.0);
+            image(ship.testShip, 0, -34);
+          }
+          else image(ship.testShip, 0, 0);
           popMatrix();
           translate(-ship.xpos, -ship.ypos);
         }
@@ -53,8 +56,7 @@ public class Board{
     
     void gridShips(){
      for(Ship ship : ships){
-      ship.xpos - 168;
-      ship.ypos
+       ship.loc();
      }
     }
 }

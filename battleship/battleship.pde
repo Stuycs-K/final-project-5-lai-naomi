@@ -21,23 +21,21 @@ void setup(){
   size(580,800);
   bsize = height/2 - 50;
   setsize = 130;
-  phase = "setup";
-  
+  phase = "setup";  
   // boards
   oppBoard = new Board(setsize+10, 5);
   plrBoard = new Board(setsize+10, 5 + height/2);
   player = new Player(plrBoard);
-  opponent = new Opponent(oppBoard);
-  
+  opponent = new Opponent(oppBoard);  
   //boats
   // Ship(int x, int y, int l, boolean v)
-   Ship s2 = new Ship(20, 20, 2, true);
-   Ship s3a = new Ship(20, 95, 3, true);
-   Ship s3b = new Ship(20, 200, 3, true);
-   Ship s4 = new Ship(20, 305, 4, true);
-   Ship s5 = new Ship(20, 440, 5, true);   
-   plrBoard.addShip(new Ship[]{s2, s3a, s3b, s4, s5});
-   target = s2;
+   Ship s2a = new Ship(20, 20, 2, true);
+   Ship s2b = new Ship(20, 95, 2, true);
+   Ship s2c = new Ship(20, 200, 2, true);
+   Ship s2d = new Ship(20, 305, 2, true);
+   Ship s2e = new Ship(20, 440, 2, true);   
+   plrBoard.addShip(new Ship[]{s2a, s2b, s2c, s2d, s2e});
+   target = s2a;
   }
 
 void draw(){
@@ -85,6 +83,11 @@ void keyPressed(){
   if(key == ' '){
    phase = "player 1 turn";
    plrBoard.gridShips();
+  }
+  
+  if(key == 'q'){
+   phase = "setup"; 
+   System.out.println("\n\n\n\n");
   }
 }
 
