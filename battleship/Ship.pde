@@ -46,9 +46,10 @@ public class Ship{
   void grid(){
    xpos /= 34;
    xpos *= 34;
+   xpos -= 2;
    ypos /= 34;
    ypos *= 34;
-   ypos += 5;
+   ypos += 4;
    //System.out.println(xpos +"," + ypos);
   }
   
