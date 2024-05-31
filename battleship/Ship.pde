@@ -53,11 +53,18 @@ public class Ship{
   }
   
   void loc(){
-    for(int p : pins){
-      String letter = alphabet.substring((xpos - 169)/34,(xpos-169)/34+1);
-      String num = "" + (((ypos - 445)/34) + 1);
+    int l = (xpos-169)/34;
+    int num = ((ypos-445)/34 + 1);
+    for(int i=0; i<pins.length; i++){
+      if(i!=0){
+        if(rotation==1) {
+          l++;
+        }
+        else num+=1;
+      }
+      String letter = alphabet.substring(l,l+1);
       System.out.println(letter + " " + num);
-      locations.add(letter+num);
+      locations.add("" + letter+num);
     }
   }
 }
