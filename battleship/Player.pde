@@ -28,7 +28,9 @@ public class Player{
   }
   
   void ship(){
-    Ship s1 = new Ship(20, 20, 2, true);
-    board.addShip(s1);
+    for(int i=0; i<5; i++){
+      Ship s = new Ship(20, 20+100*i, 2, true);
+      board.addShip(s);
+    }
   }
 }
