@@ -43,7 +43,10 @@ public class Board{
     }
     
     void drawTarget(){
-      
+      float x = target.getX() * 34 + 168;
+      float y = target.getY() * 34 + 445;
+      //System.out.println(target.getX() +"," + target.getY());
+      image(target.tar, x, y);
     }
     
     void addShip(Ship s){

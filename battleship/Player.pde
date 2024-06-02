@@ -34,4 +34,8 @@ public class Player{
       board.addShip(s);
     }
   }
+  
+  void setTurn(boolean t){
+    turn = t;
+  }
 }
