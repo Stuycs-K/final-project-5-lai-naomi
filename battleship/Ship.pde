@@ -54,8 +54,8 @@ public class Ship{
   }
   
   void loc(){
-    int l = ((xpos-169)/34) + 1;
-    int num = ((ypos-445)/34 + 1);
+    int l = ((xpos-168)/34);// + 1;
+    int num = ((ypos-446)/34 + 1);
     for(int i=0; i<pins.length; i++){
       if(i!=0){
         if(rotation==1) {
@@ -67,5 +67,9 @@ public class Ship{
       System.out.println(letter + " " + num);
       locations.add("" + letter+num);
     }
+  }
+  
+  void info(){
+   System.out.println("(" + xpos + "," + ypos + ")"); 
   }
 }

@@ -80,6 +80,7 @@ void keyPressed(){
   if(key == 'a'){
     mx= "" + mouseX;
     my = "" + mouseY;
+    target.info();
   }
   if(key == ' '){
    phase = "player 1 turn";
