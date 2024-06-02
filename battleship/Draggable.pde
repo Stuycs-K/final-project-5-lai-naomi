@@ -18,12 +18,9 @@ public class Draggable{
  void move(){
     xpos = mouseX; 
     ypos = mouseY;
-    //System.out.println(xpos +"," + ypos);
     grid();
     limitMovement();
     loc();
-    //System.out.println(xpos +"," + ypos);
-    //limitMovement();
   }
   
   void grid(){
@@ -37,6 +34,11 @@ public class Draggable{
   }
   
   void limitMovement(){
+    if(onBoard()){
+      if(xpos <= startx) xpos=startx;
+      if(xpos >= startx + 340) xpos = startx + 340;
+      
+    }
    if(xpos >= width) xpos = width-30; 
    if(xpos <= 0) xpos = 0;
    if(ypos >= height) ypos = height-30;
@@ -66,7 +68,7 @@ public class Draggable{
   }
   
   boolean onBoard(){
-    return (xpos >= startx && xpos <= startx + 340 &&  ypos >= starty && ypos <= starty + 340);
+    return (xpos >= startx && xpos <= startx + 272 &&  ypos >= starty && ypos <= starty + 340);
   }
   
   void setVis(boolean v){
