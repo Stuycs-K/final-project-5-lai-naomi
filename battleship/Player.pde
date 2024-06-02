@@ -25,7 +25,10 @@ public class Player{
     board.drawGrid();
     board.drawShips();
     board.drawPins();
-    if(turn) board.drawTarget();
+    if(turn){
+      System.out.println(turn);
+      board.drawTarget();
+    }
   }
   
   void ship(){

@@ -2,6 +2,7 @@ public class Draggable{
   int xpos;
   int ypos;
   PImage image;
+  ArrayList<String> locations;
  
  void r(){
    
@@ -17,6 +18,7 @@ public class Draggable{
     //System.out.println(xpos +"," + ypos);
     grid();
     limitMovement();
+    loc();
     //System.out.println(xpos +"," + ypos);
     //limitMovement();
   }
@@ -44,5 +46,23 @@ public class Draggable{
     int uy = ypos;
     int dy = ypos + image.height;
     return(x >= lx && x <= rx && y >= uy && y <= dy);
+  }
+  
+  String getLoc(){
+    String ans = "";
+    for(String loc : locations){
+      ans = ans + loc + " ";
+    }
+    ans = ans.substring(0,ans.length());
+   if(ans!="") return ans;
+   return "null";
+  }
+  
+  void loc(){
+    
+  }
+  
+  boolean onBoard(){
+    return (xpos >= 168 && xpos <= 440 &&  ypos >= 445 && ypos <= 785);
   }
 }

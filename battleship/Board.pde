@@ -43,7 +43,7 @@ public class Board{
     }
     
     void drawTarget(){
-      //System.out.println(target.xpos + "," + target.ypos);
+      System.out.println(target.xpos + "," + target.ypos);
       image(target.image, target.xpos, target.ypos);
     }
     

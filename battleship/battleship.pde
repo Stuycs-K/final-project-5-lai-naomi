@@ -1,9 +1,11 @@
 int setsize;
 Game game;
+boolean keyP;
 
 void setup(){
   size(580,800);
   setsize = 130; 
+  keyP = false;
   
   game = new Game();
   }
@@ -31,6 +33,7 @@ void keyPressed(){
   if(key == 'q'){
    game.prevPhase();
   }
-  
-  // testing
+  if(key == 'e'){
+   game.showLoc(); 
+  }
 }

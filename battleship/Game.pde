@@ -24,6 +24,9 @@ public class Game{
     showInfo();
     opponent.d();
     player.d();
+    if(target != null){
+      //System.out.println(target.xpos + "," + target.ypos);
+    }
   }
   
   void showInfo(){
@@ -53,7 +56,6 @@ public class Game{
       }
     }
      if(t){
-       System.out.println(target);
        target.move();
      }
     }
@@ -89,5 +91,13 @@ public class Game{
      if(phase=="setup") phase = "player2";
     if(phase == "player1") phase = "setup";
     if(phase == "player2") phase = "player1";
+  }
+  
+  void showLoc(){
+    if(t){
+      System.out.println("(x,y): " + target.xpos + "," + target.ypos);
+      System.out.println("OnBoard: " + target.onBoard());
+      System.out.println("XN: " + target.getLoc() + "\n");
+    }
   }
 }
