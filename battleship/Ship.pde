@@ -1,10 +1,9 @@
 public class Ship extends Draggable{
   int[] pins;
   boolean visible;
-  int xpos;
-  int ypos;
+  //int xpos;
+  //int ypos;
   int rotation;
-  PImage testShip = loadImage("boat.png");
   ArrayList<String> locations;
   String alphabet = "ABCDEFGHIJK";
   
@@ -14,44 +13,45 @@ public class Ship extends Draggable{
    ypos = y;
    pins = new int[l];
    visible = v;
-   rotation = 1;
-   testShip.resize(0, 34);
+   rotation = 1;   
    locations = new ArrayList<String>();
+   image = loadImage("boat.png");
+   image.resize(0, 34);
   }
   
   void sink(){
     
   }
   
-  boolean drag(int x, int y){
-    int lx = xpos;
-    int rx = xpos + testShip.width;
-    int uy = ypos;
-    int dy = ypos + testShip.height;
-    return(x >= lx && x <= rx && y >= uy && y <= dy);
-  }
+  //boolean drag(int x, int y){
+  //  int lx = xpos;
+  //  int rx = xpos + testShip.width;
+  //  int uy = ypos;
+  //  int dy = ypos + testShip.height;
+  //  return(x >= lx && x <= rx && y >= uy && y <= dy);
+  //}
   
   void r(){
     rotation++;
     if(rotation >2) rotation = 1;
   }
   
-  void limitMovement(){
-   if(xpos >= width) xpos = width-30; 
-   if(xpos <= 0) xpos = 0;
-   if(ypos >= height) ypos = height-30;
-   if(ypos <= 0) ypos = 0;
-  }
+  //void limitMovement(){
+  // if(xpos >= width) xpos = width-30; 
+  // if(xpos <= 0) xpos = 0;
+  // if(ypos >= height) ypos = height-30;
+  // if(ypos <= 0) ypos = 0;
+  //}
   
-  void grid(){
-   xpos /= 34;
-   xpos *= 34;
-   xpos -= 2;
-   ypos /= 34;
-   ypos *= 34;
-   ypos += 4;
-   //System.out.println(xpos +"," + ypos);
-  }
+  //void grid(){
+  // xpos /= 34;
+  // xpos *= 34;
+  // xpos -= 2;
+  // ypos /= 34;
+  // ypos *= 34;
+  // ypos += 4;
+  // //System.out.println(xpos +"," + ypos);
+  //}
   
   void loc(){
     int l = ((xpos-168)/34);// + 1;
@@ -73,12 +73,12 @@ public class Ship extends Draggable{
    System.out.println("(" + xpos + "," + ypos + ")"); 
   }
   
-  void move(){
-    xpos = mouseX; 
-    ypos = mouseY;
-    grid();
-    limitMovement();
-  }
+  //void move(){
+  //  xpos = mouseX; 
+  //  ypos = mouseY;
+  //  grid();
+  //  limitMovement();
+  //}
   
   String toString(){
     return "ship";

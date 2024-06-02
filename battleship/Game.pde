@@ -38,7 +38,7 @@ public class Game{
       if(!t){
         Board pboard = player.board;
         for(Ship ship : pboard.ships){
-           if(ship.drag(mouseX, mouseY) == true){
+           if(ship.drag(mouseX, mouseY)){
            target = ship;
            t=true;
            break;
@@ -47,9 +47,13 @@ public class Game{
       }
     }
     if(phase == "player1"){
-      //if(target.drag(mouse
+      if(player.selection.drag(mouseX, mouseY)){
+        target = player.selection;
+        t=true;
+      }
     }
      if(t){
+       System.out.println(target);
        target.move();
      }
     }

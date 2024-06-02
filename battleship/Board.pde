@@ -33,9 +33,9 @@ public class Board{
           pushMatrix();
           if(ship.rotation == 2){
             rotate(PI/2.0);
-            image(ship.testShip, 0, -34);
+            image(ship.image, 0, -34);
           }
-          else image(ship.testShip, 0, 0);
+          else image(ship.image, 0, 0);
           popMatrix();
           translate(-ship.xpos, -ship.ypos);
         }
@@ -43,7 +43,8 @@ public class Board{
     }
     
     void drawTarget(){
-      image(target.tar, target.getX(), target.getY());
+      //System.out.println(target.xpos + "," + target.ypos);
+      image(target.image, target.xpos, target.ypos);
     }
     
     void addShip(Ship s){
