@@ -54,7 +54,7 @@ public class Ship{
   }
   
   void loc(){
-    int l = (xpos-169)/34;
+    int l = ((xpos-169)/34) + 1;
     int num = ((ypos-445)/34 + 1);
     for(int i=0; i<pins.length; i++){
       if(i!=0){
