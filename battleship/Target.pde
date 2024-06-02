@@ -1,4 +1,4 @@
-public class Target{
+public class Target extends Draggable{
   String location;
   PImage tar = loadImage("outline.png");
   boolean visible;

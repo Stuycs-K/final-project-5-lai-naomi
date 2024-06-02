@@ -1,4 +1,4 @@
-public class Ship{
+public class Ship extends Draggable{
   int[] pins;
   boolean visible;
   int xpos;

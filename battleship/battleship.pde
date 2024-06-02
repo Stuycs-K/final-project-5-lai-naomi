@@ -14,11 +14,11 @@ void draw(){
 }
 
 void mouseDragged(){
-  game.moveShip();
+  game.move();
 }
 
 void mouseReleased(){
- game.releaseShip();
+ game.release();
 }
 
 void keyPressed(){

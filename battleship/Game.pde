@@ -6,7 +6,7 @@ public class Game{
   boolean t; //if there is a target
   Player player;
   Opponent opponent;
-  Ship target;
+  Draggable target;
     
   public Game(){
     lines = loadImage("lines.png");
@@ -27,13 +27,13 @@ public class Game{
   }
   
   void showInfo(){
-    String print = "Phase: " + phase;
+    String print = "Phase: " + phase + "\nTarget: " + target;
     fill(0,0,0);
     text(print, 20, height-30);
     text(mx + "," + my, 20, height-50);
   }  
   
-  void moveShip(){
+  void move(){
     if(phase == "setup"){
       if(!t){
         Board pboard = player.board;
@@ -51,7 +51,8 @@ public class Game{
     }
   }
   
-  void releaseShip(){
+  void release(){
+    target = null;
     t=false;
   }
   
