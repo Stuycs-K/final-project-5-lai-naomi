@@ -1,11 +1,6 @@
-public class Ship{
+public class Ship extends Draggable{
   int[] pins;
-  boolean visible;
-  int xpos;
-  int ypos;
   int rotation;
-  PImage testShip = loadImage("boat.png");
-  ArrayList<String> locations;
   String alphabet = "ABCDEFGHIJK";
   
   
@@ -14,69 +9,43 @@ public class Ship{
    ypos = y;
    pins = new int[l];
    visible = v;
-   rotation = 1;
-   testShip.resize(0, 34);
+   rotation = 1;   
    locations = new ArrayList<String>();
+   image = loadImage("boat.png");
+   image.resize(0, 34);
+   startx = 168;
+   starty = 445;
   }
   
   void sink(){
     
   }
   
-  boolean drag(int x, int y){
-    int lx = xpos;
-    int rx = xpos + testShip.width;
-    int uy = ypos;
-    int dy = ypos + testShip.height;
-    return(x >= lx && x <= rx && y >= uy && y <= dy);
-  }
-  
   void r(){
     rotation++;
     if(rotation >2) rotation = 1;
-  }
-  
-  void limitMovement(){
-   if(xpos >= width) xpos = width-30; 
-   if(xpos <= 0) xpos = 0;
-   if(ypos >= height) ypos = height-30;
-   if(ypos <= 0) ypos = 0;
-  }
-  
-  void grid(){
-   xpos /= 34;
-   xpos *= 34;
-   xpos -= 2;
-   ypos /= 34;
-   ypos *= 34;
-   ypos += 4;
-   //System.out.println(xpos +"," + ypos);
+    loc();
   }
   
   void loc(){
-    int l = ((xpos-168)/34);// + 1;
-    int num = ((ypos-446)/34 + 1);
-    for(int i=0; i<pins.length; i++){
-      if(i!=0){
-        if(rotation==1) {
-          l++;
+    if(onBoard()){
+      locations = new ArrayList<String>();
+      int l = ((xpos-168)/34);// + 1;
+      int num = ((ypos-446)/34 + 1);
+      for(int i=0; i<pins.length; i++){
+        if(i!=0){
+          if(rotation==1) {
+            l++;
+          }
+          else num+=1;
         }
-        else num+=1;
+        String letter = alphabet.substring(l,l+1);
+        locations.add("" + letter+num);
       }
-      String letter = alphabet.substring(l,l+1);
-      System.out.println(letter + " " + num);
-      locations.add("" + letter+num);
     }
   }
   
-  void info(){
-   System.out.println("(" + xpos + "," + ypos + ")"); 
-  }
-  
-  void move(){
-    xpos = mouseX; 
-    ypos = mouseY;
-    grid();
-    limitMovement();
+  String toString(){
+    return "ship";
   }
 }

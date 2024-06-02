@@ -1,9 +1,11 @@
 int setsize;
 Game game;
+boolean keyP;
 
 void setup(){
   size(580,800);
   setsize = 130; 
+  keyP = false;
   
   game = new Game();
   }
@@ -14,11 +16,11 @@ void draw(){
 }
 
 void mouseDragged(){
-  game.moveShip();
+  game.move();
 }
 
 void mouseReleased(){
- game.releaseShip();
+ game.release();
 }
 
 void keyPressed(){
@@ -30,5 +32,8 @@ void keyPressed(){
   }  
   if(key == 'q'){
    game.prevPhase();
+  }
+  if(key == 'e'){
+   game.showLoc(); 
   }
 }

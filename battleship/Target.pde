@@ -1,19 +1,19 @@
-public class Target{
-  String location;
-  PImage tar = loadImage("outline.png");
-  boolean visible;
-  
+public class Target extends Draggable{
+  String alphabet = "ABCDEFGHIJK";
   
   public Target(){
-   location = "A1";
    visible = false;
+   image = loadImage("outline.png");
+   image.resize(34,34);
+   xpos = 169;
+   ypos = 40;
   }
   
-  void setVis(boolean v){
-    visible = v;  
+  String toString(){
+    return "target";
   }
   
-  void drag(){
-    
+  void move(){
+    super.move();    
   }
 }
