@@ -72,4 +72,11 @@ public class Ship{
   void info(){
    System.out.println("(" + xpos + "," + ypos + ")"); 
   }
+  
+  void move(){
+    xpos = mouseX; 
+    ypos = mouseY;
+    grid();
+    limitMovement();
+  }
 }

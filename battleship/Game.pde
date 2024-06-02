@@ -52,10 +52,7 @@ public class Game{
          }
       }
      if(t){
-      target.xpos = mouseX; 
-      target.ypos = mouseY;
-      target.grid();
-      target.limitMovement();
+       target.move();
      }
     }
   }
