@@ -3,11 +3,10 @@ public class Player{
   Target selection;
   Board board;
   
-  public Player(Board b){
+  public Player(){
      turn = false;
-     phase = "setup";
      selection = new Target();
-     board = b;
+     board = new Board(setsize+10, 5 + height/2);
   }
   
   void confirmTarget(){
@@ -16,5 +15,20 @@ public class Player{
   
   void confirmSetup(){
  
+  }
+  
+  void addShip(Ship s){
+    board.addShip(s);
+  }
+  
+  void d(){
+    board.drawGrid();
+    board.drawShips();
+    board.drawPins();
+  }
+  
+  void ship(){
+    Ship s1 = new Ship(20, 20, 2, true);
+    board.addShip(s1);
   }
 }

@@ -1,10 +1,16 @@
 public class Target{
-  int xpos;
-  int ypos;
+  String location;
+  PImage tar = loadImage("outline.png");
+  boolean visible;
+  
   
   public Target(){
-   xpos=0;
-   ypos=0;
+   location = "A1";
+   visible = false;
+  }
+  
+  void setVis(boolean v){
+    visible = v;  
   }
   
   void drag(){
