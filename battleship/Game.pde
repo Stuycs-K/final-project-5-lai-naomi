@@ -1,27 +1,21 @@
-public class Game{
-  Player player;
-  Opponent opponent;
+public class Game{  
   String phase;
   PImage lines;
-  
-  Ship target;
-  boolean t; //if there is a target
-  
   String mx="-1";
   String my="-1";
-  
+  boolean t; //if there is a target
+  Player player;
+  Opponent opponent;
+  Ship target;
+    
   public Game(){
     lines = loadImage("lines.png");
-    lines.resize(width, height);
-    
-    phase = "setup";
-    
+    lines.resize(width, height);    
+    phase = "setup";    
     player = new Player();
     opponent = new Opponent();  
-    
     player.ship();
-    opponent.ship();
-    
+    opponent.ship();    
     t=false;
   }
   
@@ -69,8 +63,8 @@ public class Game{
     
   void nextPhase(){
     if(phase=="setup") phase = "player1";
-    if(phase == "player1") phase = "player 2";
-    if(phase == "player2") phase = "player1";
+    else if(phase == "player1") phase = "player2";
+    else if(phase == "player2") phase = "player1";
   }
   
   void prevPhase(){

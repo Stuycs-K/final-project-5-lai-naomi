@@ -4,12 +4,14 @@ public class Board{
     int xpos;
     int ypos;
     PImage grid = loadImage("grid.png");    
+    Target target;
     
     public Board(int x, int y){
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
       xpos = x;
       ypos = y;
+      target = new Target();
       
       grid.resize(380,0);
     }
@@ -38,6 +40,10 @@ public class Board{
           translate(-ship.xpos, -ship.ypos);
         }
       }
+    }
+    
+    void drawTarget(){
+      
     }
     
     void addShip(Ship s){
