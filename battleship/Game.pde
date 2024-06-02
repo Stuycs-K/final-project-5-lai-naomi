@@ -45,11 +45,15 @@ public class Game{
            }
          }
       }
+    }
+    if(phase == "player1"){
+      //if(target.drag(mouse
+    }
      if(t){
        target.move();
      }
     }
-  }
+  
   
   void release(){
     target = null;

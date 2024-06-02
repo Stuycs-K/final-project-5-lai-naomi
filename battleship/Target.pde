@@ -20,10 +20,26 @@ public class Target extends Draggable{
   }
   
   float getX(){
-    return alphabet.indexOf(location.substring(0,1));
+    return (alphabet.indexOf(location.substring(0,1))) * 34 + 168;
   }
   
   float getY(){
-   return Integer.parseInt(location.substring(1)) - 1; 
+   return (Integer.parseInt(location.substring(1)) - 1) * 34 + 445; 
   }
+  
+  void move(){
+    
+  }
+  
+  String toString(){
+    return "target";
+  }
+  
+  //boolean drag(int x, int y){
+  //  int lx = xpos;
+  //  int rx = xpos + testShip.width;
+  //  int uy = ypos;
+  //  int dy = ypos + testShip.height;
+  //  return(x >= lx && x <= rx && y >= uy && y <= dy);
+  //}
 }

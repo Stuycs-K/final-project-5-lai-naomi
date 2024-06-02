@@ -79,4 +79,8 @@ public class Ship extends Draggable{
     grid();
     limitMovement();
   }
+  
+  String toString(){
+    return "ship";
+  }
 }
