@@ -18,6 +18,10 @@
 2. worked on pin location-- when setup is finished, the ships store info about their location
 3. adjust ship and grid alignment
 
+### 6/1
+1. fixed location-- when the ship is dragged, the location is accurately displayed. previously, ships on A1 would appear as B1.
+2. organized game-- main 'battleship' tab is less cluttered and created Game class
+
 
 ## GROUP MEMBER 2
 
