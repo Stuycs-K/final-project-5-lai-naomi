@@ -3,6 +3,9 @@ public class Draggable{
   int ypos;
   PImage image;
   ArrayList<String> locations;
+  int startx;
+  int starty;
+  boolean visible;
  
  void r(){
    
@@ -63,6 +66,10 @@ public class Draggable{
   }
   
   boolean onBoard(){
-    return (xpos >= 168 && xpos <= 440 &&  ypos >= 445 && ypos <= 785);
+    return (xpos >= startx && xpos <= startx + 340 &&  ypos >= starty && ypos <= starty + 340);
+  }
+  
+  void setVis(boolean v){
+    visible = v;
   }
 }

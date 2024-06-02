@@ -56,10 +56,10 @@ public class Game{
       }
     }
      if(t){
+       //System.out.println("move");
        target.move();
      }
-    }
-  
+    }  
   
   void release(){
     target = null;

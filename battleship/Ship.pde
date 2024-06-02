@@ -1,6 +1,5 @@
 public class Ship extends Draggable{
   int[] pins;
-  boolean visible;
   int rotation;
   String alphabet = "ABCDEFGHIJK";
   
@@ -14,6 +13,8 @@ public class Ship extends Draggable{
    locations = new ArrayList<String>();
    image = loadImage("boat.png");
    image.resize(0, 34);
+   startx = 168;
+   starty = 445;
   }
   
   void sink(){
@@ -39,14 +40,9 @@ public class Ship extends Draggable{
           else num+=1;
         }
         String letter = alphabet.substring(l,l+1);
-        //System.out.println(letter + " " + num);
         locations.add("" + letter+num);
       }
     }
-  }
-  
-  void info(){
-   System.out.println("(" + xpos + "," + ypos + ")"); 
   }
   
   String toString(){

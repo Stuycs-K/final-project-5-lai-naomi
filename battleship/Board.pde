@@ -43,8 +43,10 @@ public class Board{
     }
     
     void drawTarget(){
-      System.out.println(target.xpos + "," + target.ypos);
-      image(target.image, target.xpos, target.ypos);
+      if(target.visible){
+        System.out.println("target");
+        image(target.image, target.xpos, target.ypos);
+      }
     }
     
     void addShip(Ship s){

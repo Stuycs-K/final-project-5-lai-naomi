@@ -5,8 +5,8 @@ public class Player{
   
   public Player(){
      turn = false;
-     selection = new Target();
      board = new Board(setsize+10, 5 + height/2);
+     selection = board.target;
   }
   
   void confirmTarget(){
@@ -25,10 +25,7 @@ public class Player{
     board.drawGrid();
     board.drawShips();
     board.drawPins();
-    if(turn){
-      System.out.println(turn);
-      board.drawTarget();
-    }
+    board.drawTarget();
   }
   
   void ship(){
@@ -40,5 +37,7 @@ public class Player{
   
   void setTurn(boolean t){
     turn = t;
+    if(turn) selection.setVis(true);
+    else selection.setVis(false);
   }
 }
