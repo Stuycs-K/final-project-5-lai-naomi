@@ -16,4 +16,13 @@ public class Opponent{
  void confirmTarget(){
    
  }
+ 
+ void d(){
+   board.drawGrid();
+   board.drawPins();
+ }
+ 
+ void ship(){
+   
+ }
 }

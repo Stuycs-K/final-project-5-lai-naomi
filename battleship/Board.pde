@@ -44,12 +44,6 @@ public class Board{
       ships.add(s);
     }
     
-    void addShip(Ship[] s){
-      for(Ship ship : s){
-        ships.add(ship);
-      }
-    }
-    
     void addPin(Pin p){
       pins.add(p);
     }
