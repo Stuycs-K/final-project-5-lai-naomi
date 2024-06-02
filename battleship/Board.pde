@@ -27,7 +27,15 @@ public class Board{
     void drawShips(){
       for(Ship ship : ships){
         if(ship.visible==true){
-          image(ship.testShip, ship.xpos, ship.ypos);
+          translate(ship.xpos, ship.ypos);
+          pushMatrix();
+          if(ship.rotation == 2){
+            rotate(PI/2.0);
+            image(ship.testShip, 0, -34);
+          }
+          else image(ship.testShip, 0, 0);
+          popMatrix();
+          translate(-ship.xpos, -ship.ypos);
         }
       }
     }
@@ -44,5 +52,11 @@ public class Board{
     
     void addPin(Pin p){
       pins.add(p);
+    }
+    
+    void gridShips(){
+     for(Ship ship : ships){
+       ship.loc();
+     }
     }
 }
