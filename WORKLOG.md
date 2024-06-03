@@ -27,6 +27,9 @@
 1. target dragging-- target can be dragged
 2. minor changes-- location, target dragging, board mechanics (staying on board, boundaries, rotation)
 3. began button-- clicking button enters next phase
+4. opponent ships-- opponents ships are randomly generated
+5. ship creation-- ships can be created using their grid location
+6. toggle opponent-- (for demo purposes) opponents ships can be toggled on/off
 
 
 ## GROUP MEMBER 2
