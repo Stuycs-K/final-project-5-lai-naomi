@@ -13,7 +13,10 @@ public class Target extends Draggable{
    startx = 168;
    starty = 39;
    b=false;
+   rotation = -1;
+   
    locations = new ArrayList<String>();
+   locations.add("");
   }
   
   String toString(){

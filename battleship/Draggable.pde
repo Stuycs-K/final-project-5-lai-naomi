@@ -4,6 +4,7 @@ public class Draggable{
   ArrayList<String> locations;
   boolean visible, b; // b: if the object is on the board  
   String alphabet = "ABCDEFGHIJK";
+  int rotation;
  
  void r(){
    
@@ -19,7 +20,7 @@ public class Draggable{
     grid();
     if(onBoard()) b=true;
     limitMovement();
-    //loc();
+    loc();
     
   }
   
@@ -31,9 +32,7 @@ public class Draggable{
   }
   
   void limitMovement(){
-    if(b){
-      stayOnBoard();
-    }
+    if(b) stayOnBoard();
    if(xpos >= width) xpos = width-30; 
    if(xpos <= 0) xpos = 0;
    if(ypos >= height) ypos = height-30;
@@ -43,7 +42,10 @@ public class Draggable{
   void stayOnBoard(){
     if(xpos <= startx) xpos=startx;
     if(ypos <= starty) ypos = starty;
-    if (ypos >= starty+306) ypos = starty+306;
+    if(ypos >= starty+306){
+      if(rotation != 2) ypos = starty+306;
+      else ypos = starty+274;
+    }
   }
   
   boolean drag(int x, int y){
@@ -65,7 +67,18 @@ public class Draggable{
   }
   
   void loc(){
-    
+    if(b) {
+      int l = ((xpos-startx)/34);
+      int num = ((ypos-starty)/34 + 1);
+      for(int i=0; i<locations.size(); i++){
+        if(i!=0){
+          if(rotation==1) l++;
+          else if(rotation==2) num+=1;
+        }
+        String letter = alphabet.substring(l,l+1);
+        locations.set(i,"" + letter+num);
+      }
+    }
   }
   
   boolean onBoard(){

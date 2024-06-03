@@ -101,7 +101,8 @@ public class Game{
     if(t){
       System.out.println("(x,y): " + target.xpos + "," + target.ypos);
       System.out.println("OnBoard: " + target.onBoard());
-      System.out.println("XN: " + target.getLoc() + "\n");
+      System.out.println("Rotation: " + target.rotation);
+      System.out.println("XN: " + target.getLoc() + "\n");      
     }
   }
   

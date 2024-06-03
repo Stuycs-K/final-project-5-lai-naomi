@@ -39,7 +39,7 @@ void keyPressed(){
   if(key == 'd'){
     System.out.println(mouseX + "," + mouseY);
   }  
-  if(key == 'r'){
+  if(key == '0'){
     System.out.println("reset");
     game = new Game();
   }
