@@ -100,4 +100,8 @@ public class Game{
       System.out.println("XN: " + target.getLoc() + "\n");
     }
   }
+  
+  void showCoor(){
+    System.out.println(mouseX + "," + mouseY);
+  }
 }

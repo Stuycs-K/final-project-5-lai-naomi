@@ -27,13 +27,20 @@ void keyPressed(){
   if(key == 'r'){
     game.r();
   }
-  if(key == ' '){
+  if(key == 'e'){
    game.nextPhase();
   }  
   if(key == 'q'){
    game.prevPhase();
   }
-  if(key == 'e'){
+  if(key == 'a'){
    game.showLoc(); 
+  }
+  if(key == 'd'){
+    System.out.println(mouseX + "," + mouseY);
+  }  
+  if(key == 'r'){
+    System.out.println("reset");
+    game = new Game();
   }
 }

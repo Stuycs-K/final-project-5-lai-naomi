@@ -2,7 +2,8 @@ public class Draggable{
   int xpos, ypos, startx, starty;
   PImage image;
   ArrayList<String> locations;
-  boolean visible, b; // b: if the object is on the board
+  boolean visible, b; // b: if the object is on the board  
+  String alphabet = "ABCDEFGHIJK";
  
  void r(){
    
@@ -14,20 +15,19 @@ public class Draggable{
  
  void move(){
     xpos = mouseX; 
-    ypos = mouseY;
+    ypos = mouseY;    
     grid();
-    limitMovement();
-    loc();
     if(onBoard()) b=true;
+    //limitMovement();
+    //loc();
+    
   }
   
   void grid(){
    xpos /= 34;
    xpos *= 34;
-   xpos -= 2;
    ypos /= 34;
    ypos *= 34;
-   ypos += 4;
   }
   
   void limitMovement(){

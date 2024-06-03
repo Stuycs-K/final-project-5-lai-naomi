@@ -1,8 +1,6 @@
 public class Ship extends Draggable{
   int[] pins;
-  int rotation;
-  String alphabet = "ABCDEFGHIJK";
-  
+  int rotation;  
   
   public Ship(int x, int y, int l, boolean v){
    xpos = x;
@@ -48,5 +46,11 @@ public class Ship extends Draggable{
   
   String toString(){
     return "ship";
+  }
+  
+  void grid(){
+    super.grid();
+    xpos -=2; 
+    ypos += 4;
   }
 }

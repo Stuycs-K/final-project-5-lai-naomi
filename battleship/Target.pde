@@ -1,13 +1,19 @@
-public class Target extends Draggable{
-  String alphabet = "ABCDEFGHIJK";
-  
+public class Target extends Draggable{  
+  //int xpos, ypos, startx, starty;
+  //PImage image;
+  //ArrayList<String> locations;
+  //boolean visible, b; // b: if the object is on the board  
+  //String alphabet = "ABCDEFGHIJK";
   public Target(){
    visible = false;
    image = loadImage("outline.png");
-   image.resize(34,34);
-   xpos = 169;
-   ypos = 40;
+   image.resize(0,34);
+   xpos = 168;
+   ypos = 39;
+   startx = 168;
+   starty = 39;
    b=false;
+   locations = new ArrayList<String>();
   }
   
   String toString(){
@@ -16,5 +22,11 @@ public class Target extends Draggable{
   
   void move(){
     super.move();    
+  }
+  
+  void grid(){
+    super.grid();
+    xpos -= 2;
+    ypos += 5;
   }
 }
