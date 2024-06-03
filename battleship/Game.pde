@@ -33,7 +33,7 @@ public class Game{
     String print = "Phase: " + phase + "\nTarget: " + target;
     fill(0,0,0);
     text(print, 20, height-30);
-    text(mx + "," + my, 20, height-50);
+    //text(mx + "," + my, 20, height-50);
   }  
   
   void move(){

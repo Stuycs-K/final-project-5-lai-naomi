@@ -56,6 +56,7 @@ public class Ship extends Draggable{
   }
   
   boolean onBoard(){
+    if(rotation ==2) return ypos <= starty + 306;
    return super.onBoard() && xpos <= startx + 272; 
   }
   

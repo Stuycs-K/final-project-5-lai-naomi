@@ -82,6 +82,7 @@ public class Draggable{
   }
   
   boolean onBoard(){
+    if(rotation ==2) return (xpos >= startx && ypos >= starty && ypos <= starty+272);
     return (xpos >= startx &&  ypos >= starty && ypos <= starty + 340);
   }
   
