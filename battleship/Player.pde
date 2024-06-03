@@ -33,8 +33,6 @@ public class Player{
       Ship s = new Ship(34, 34+34*3*i, 2, true);
       board.addShip(s);
     }
-    Ship s = new Ship("A", 1, "B", 2, 2, true);
-    board.addShip(s);
   }
   
   void setTurn(boolean t){
