@@ -42,8 +42,8 @@ public class Draggable{
   void stayOnBoard(){
     if(xpos <= startx) xpos=startx;
     if(ypos <= starty) ypos = starty;
-    if(ypos >= starty+306){
-      if(rotation != 2) ypos = starty+306;
+    if(ypos >= starty+304){
+      if(rotation != 2) ypos = starty+304;
       else ypos = starty+274;
     }
   }
