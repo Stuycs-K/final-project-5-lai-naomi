@@ -21,6 +21,12 @@
 ### 6/1
 1. fixed location-- when the ship is dragged, the location is accurately displayed. previously, ships on A1 would appear as B1.
 2. organized game-- main 'battleship' tab is less cluttered and created Game class
+3. draggable class-- incorporate ship dragging and target dragging
+
+### 6/2
+1. target dragging-- target can be dragged
+2. minor changes-- location, target dragging, board mechanics (staying on board, boundaries, rotation)
+3. began button-- clicking button enters next phase
 
 
 ## GROUP MEMBER 2
