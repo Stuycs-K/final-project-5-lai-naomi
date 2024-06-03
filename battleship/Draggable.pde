@@ -32,7 +32,7 @@ public class Draggable{
   }
   
   void limitMovement(){
-    if(b) stayOnBoard();
+   if(b) stayOnBoard();
    if(xpos >= width) xpos = width-30; 
    if(xpos <= 0) xpos = 0;
    if(ypos >= height) ypos = height-30;
