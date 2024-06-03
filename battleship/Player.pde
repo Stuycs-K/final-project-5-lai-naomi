@@ -30,7 +30,7 @@ public class Player{
   
   void ship(){
     for(int i=0; i<5; i++){
-      Ship s = new Ship(20, 20+100*i, 2, true);
+      Ship s = new Ship(34, 34+34*3*i, 2, true);
       board.addShip(s);
     }
   }
