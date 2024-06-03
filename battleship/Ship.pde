@@ -15,6 +15,7 @@ public class Ship extends Draggable{
    image.resize(0, 34);
    startx = 168;
    starty = 445;
+   b=false;
   }
   
   void sink(){
