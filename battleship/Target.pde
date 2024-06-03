@@ -27,6 +27,15 @@ public class Target extends Draggable{
   void grid(){
     super.grid();
     xpos -= 2;
-    ypos += 5;
+    ypos += 6;
+  }
+  
+  boolean onBoard(){
+   return super.onBoard() && xpos <= startx + 306; 
+  }
+  
+  void stayOnBoard(){
+    super.stayOnBoard();
+    if(xpos >= startx + 306) xpos = startx + 306;
   }
 }

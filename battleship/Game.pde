@@ -75,22 +75,26 @@ public class Game{
   void nextPhase(){
     if(phase=="setup"){
       phase = "player1";
-      player.setTurn(true);
     }
     else if(phase == "player1"){
       phase = "player2";
-      player.setTurn(false);
     }
     else if(phase == "player2"){
       phase = "player1";
-      player.setTurn(true);
     }
+    updatePhase();
   }
   
   void prevPhase(){
-     if(phase=="setup") phase = "player2";
+    if(phase=="setup") phase = "player2";
     if(phase == "player1") phase = "setup";
     if(phase == "player2") phase = "player1";
+    updatePhase();
+  }
+  
+  void updatePhase(){
+    if(phase == "setup" || phase == "player2") player.setTurn(false);
+    if(phase == "player1") player.setTurn(true);
   }
   
   void showLoc(){

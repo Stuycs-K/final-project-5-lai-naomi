@@ -53,4 +53,13 @@ public class Ship extends Draggable{
     xpos -=2; 
     ypos += 4;
   }
+  
+  boolean onBoard(){
+   return super.onBoard() && xpos <= startx + 272; 
+  }
+  
+  void stayOnBoard(){
+    super.stayOnBoard();
+    if(xpos >= startx + 272) xpos = startx + 272;
+  }
 }
