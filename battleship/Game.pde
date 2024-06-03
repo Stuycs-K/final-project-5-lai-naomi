@@ -1,8 +1,6 @@
 public class Game{  
   String phase;
   PImage lines;
-  String mx="-1";
-  String my="-1";
   boolean t; //if there is a target
   Player player;
   Opponent opponent;
@@ -24,16 +22,12 @@ public class Game{
     showInfo();
     opponent.d();
     player.d();
-    if(target != null){
-      //System.out.println(target.xpos + "," + target.ypos);
-    }
   }
   
   void showInfo(){
     String print = "Phase: " + phase + "\nTarget: " + target;
     fill(0,0,0);
     text(print, 20, height-30);
-    //text(mx + "," + my, 20, height-50);
   }  
   
   void move(){
@@ -55,10 +49,7 @@ public class Game{
         t=true;
       }
     }
-     if(t){
-       //System.out.println("move");
-       target.move();
-     }
+     if(t) target.move(); 
     }  
   
   void release(){
@@ -67,21 +58,13 @@ public class Game{
   }
   
   void r(){
-    if(t){
-      target.r();
-    }
+    if(t) target.r();
   }
     
   void nextPhase(){
-    if(phase=="setup"){
-      phase = "player1";
-    }
-    else if(phase == "player1"){
-      phase = "player2";
-    }
-    else if(phase == "player2"){
-      phase = "player1";
-    }
+    if(phase=="setup") phase = "player1";
+    else if(phase == "player1") phase = "player2";
+    else if(phase == "player2") phase = "player1";
     updatePhase();
   }
   

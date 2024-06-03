@@ -20,15 +20,12 @@ public class Draggable{
     grid();
     if(onBoard()) b=true;
     limitMovement();
-    loc();
-    
+    loc();    
   }
   
   void grid(){
-   xpos /= 34;
-   xpos *= 34;
-   ypos /= 34;
-   ypos *= 34;
+   xpos = (xpos/34)*34;
+   ypos = (ypos/34)*34;
   }
   
   void limitMovement(){
@@ -58,12 +55,10 @@ public class Draggable{
   
   String getLoc(){
     String ans = "";
-    for(String loc : locations){
-      ans = ans + loc + " ";
-    }
+    for(String loc : locations) ans = ans + loc + " ";
     ans = ans.substring(0,ans.length());
-   if(ans!="") return ans;
-   return "null";
+    if(ans!="") return ans;
+    return "null";
   }
   
   void loc(){

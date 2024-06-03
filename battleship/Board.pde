@@ -11,8 +11,7 @@ public class Board{
       ships = new ArrayList<Ship>();
       xpos = x;
       ypos = y;
-      target = new Target();
-      
+      target = new Target();      
       grid.resize(380,0);
     }
     
@@ -43,10 +42,7 @@ public class Board{
     }
     
     void drawTarget(){
-      if(target.visible){
-        //System.out.println("target");
-        image(target.image, target.xpos, target.ypos);
-      }
+      if(target.visible) image(target.image, target.xpos, target.ypos);
     }
     
     void addShip(Ship s){
@@ -54,9 +50,7 @@ public class Board{
     }
     
     void addShip(Ship[] s){
-      for(Ship ship : s){
-        addShip(ship);
-      }
+      for(Ship ship : s) addShip(ship);
     }
     
     void addPin(Pin p){
@@ -64,8 +58,6 @@ public class Board{
     }
     
     void gridShips(){
-     for(Ship ship : ships){
-       ship.loc();
-     }
+     for(Ship ship : ships) ship.loc();
     }
 }

@@ -1,9 +1,4 @@
 public class Target extends Draggable{  
-  //int xpos, ypos, startx, starty;
-  //PImage image;
-  //ArrayList<String> locations;
-  //boolean visible, b; // b: if the object is on the board  
-  //String alphabet = "ABCDEFGHIJK";
   public Target(){
    visible = false;
    image = loadImage("outline.png");
