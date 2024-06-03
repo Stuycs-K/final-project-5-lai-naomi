@@ -42,9 +42,18 @@ public class Opponent{
      String letter1 = alphabet.substring(index1, index1+1);
      String letter2 = alphabet.substring(index2, index2+1);
      
-     Ship s = new Ship(letter1, n1, letter2, n2, 2, true);
-     System.out.println(letter1 + n1 + "," + letter2 + n2 + " chance: " + chance);
+     Ship s = new Ship(letter1, n1, letter2, n2, 2, false);
+     s.setStartx(168);
+     s.setStarty(39);
+     //System.out.println(letter1 + n1 + "," + letter2 + n2 + " chance: " + chance);
      board.addShip(s);
+     s.updateLoc();
+   }
+ }
+ 
+ void shipVis(){
+   for(Ship ship : board.ships){
+     ship.setVis(!ship.visible);
    }
  }
 }

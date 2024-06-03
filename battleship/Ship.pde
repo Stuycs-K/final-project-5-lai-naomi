@@ -45,24 +45,6 @@ public class Ship extends Draggable{
     loc();
   }
   
-  void loc(){
-    if(onBoard()){
-      locations = new ArrayList<String>();
-      int l = ((xpos-168)/34);// + 1;
-      int num = ((ypos-446)/34 + 1);
-      for(int i=0; i<pins.length; i++){
-        if(i!=0){
-          if(rotation==1) {
-            l++;
-          }
-          else num+=1;
-        }
-        String letter = alphabet.substring(l,l+1);
-        locations.add("" + letter+num);
-      }
-    }
-  }
-  
   String toString(){
     return "ship";
   }
@@ -82,5 +64,13 @@ public class Ship extends Draggable{
     super.stayOnBoard();
     if(xpos >= startx + 272 && rotation !=2) xpos = startx + 272;
     if(xpos >= startx + 306 && rotation ==2) xpos = startx + 306;
+  }
+  
+  void setStartx(int x){
+    startx = x;
+  }
+  
+  void setStarty(int y){
+    starty = y;
   }
 }

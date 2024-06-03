@@ -109,4 +109,8 @@ public class Game{
   void showCoor(){
     System.out.println(mouseX + "," + mouseY);
   }
+  
+  void feature(){
+   opponent.shipVis(); 
+  }
 }

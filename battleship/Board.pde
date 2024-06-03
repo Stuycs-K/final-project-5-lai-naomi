@@ -68,4 +68,8 @@ public class Board{
        ship.loc();
      }
     }
+    
+    void nameShips(){
+     for(Ship ship : ships) System.out.print("Ship "); 
+    }
 }
