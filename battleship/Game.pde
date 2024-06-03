@@ -5,6 +5,7 @@ public class Game{
   Player player;
   Opponent opponent;
   Draggable target;
+  Button button;
     
   public Game(){
     lines = loadImage("lines.png");
@@ -15,6 +16,7 @@ public class Game{
     player.ship();
     opponent.ship();    
     t=false;
+    button = new Button();
   }
   
   void d(){
@@ -22,6 +24,7 @@ public class Game{
     showInfo();
     opponent.d();
     player.d();
+    button.d();
   }
   
   void showInfo(){
@@ -76,8 +79,18 @@ public class Game{
   }
   
   void updatePhase(){
-    if(phase == "setup" || phase == "player2") player.setTurn(false);
-    if(phase == "player1") player.setTurn(true);
+    if(phase == "setup"){
+      player.setTurn(false);
+      button.setDisplay("End Setup");
+    }
+    if(phase == "player2"){
+      player.setTurn(false);
+      button.setDisplay("");
+    }
+    if(phase == "player1"){
+      player.setTurn(true);
+      button.setDisplay("Confirm\nTarget");
+    }
   }
   
   void showLoc(){
@@ -91,5 +104,9 @@ public class Game{
   
   void showCoor(){
     System.out.println(mouseX + "," + mouseY);
+  }
+  
+  void b(){
+    if(button.click(mouseX, mouseY)) nextPhase();
   }
 }

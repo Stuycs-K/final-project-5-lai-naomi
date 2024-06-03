@@ -15,6 +15,10 @@ void draw(){
   game.d();
 }
 
+void mouseClicked(){
+  game.b();
+}
+
 void mouseDragged(){
   game.move();
 }
