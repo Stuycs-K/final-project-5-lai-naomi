@@ -10,4 +10,7 @@ During setup, the ships can be dragged onto the board.
 q - goes to previous stage (setup-player1-player2)\
 e - goes to next stage\
 a- prints target objects information\
-d - prints mouse's coordinates
+d - prints mouse's coordinates\
+t- game feature\
+\
+** during demo, the game feature is toggling opponents
