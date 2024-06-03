@@ -4,3 +4,10 @@ THIS DOCUMENT IS REQUIRED
 ## Group Info
 ## Overview
 ## Instructions
+During setup, the ships can be dragged onto the board.
+## Shortcuts
+0 - resets game\
+q - goes to previous stage (setup-player1-player2)\
+e - goes to next stage\
+a- prints target objects information\
+d - prints mouse's coordinates

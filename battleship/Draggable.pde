@@ -89,4 +89,12 @@ public class Draggable{
   void setVis(boolean v){
     visible = v;
   }
+  
+  void updateLoc(){
+    String letter = locations.get(0).substring(0,1);
+    int n = Integer.parseInt(locations.get(0).substring(1));
+    int index = alphabet.indexOf(letter);
+    xpos = startx + index * 34;
+    ypos = starty + (n-1) * 34;
+  }
 }
