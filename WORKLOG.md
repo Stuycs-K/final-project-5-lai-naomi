@@ -1,6 +1,6 @@
 # Work Log
 
-## GROUP MEMBER 1
+## GROUP MEMBER 1 - Naomi
 
 ### 5/29
 
@@ -30,14 +30,3 @@
 4. opponent ships-- opponents ships are randomly generated
 5. ship creation-- ships can be created using their grid location
 6. toggle opponent-- (for demo purposes) opponents ships can be toggled on/off
-
-
-## GROUP MEMBER 2
-
-### date x
-
-info
-
-### date y
-
-info
