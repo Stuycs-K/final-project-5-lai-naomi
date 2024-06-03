@@ -6,7 +6,7 @@ public class Opponent{
  public Opponent(){
   turn = false;
   selection = new Target();
-  board = new Board(setsize+10, 0);;
+  board = new Board(setsize+10, 0);
  }
  
  void wait(int x){
