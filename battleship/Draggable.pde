@@ -1,11 +1,10 @@
 public class Draggable{
-  int xpos;
-  int ypos;
+  int xpos, ypos, startx, starty;
   PImage image;
   ArrayList<String> locations;
-  int startx;
-  int starty;
-  boolean visible;
+  boolean visible, b; // b: if the object is on the board  
+  String alphabet = "ABCDEFGHIJK";
+  int rotation;
  
  void r(){
    
@@ -17,30 +16,36 @@ public class Draggable{
  
  void move(){
     xpos = mouseX; 
-    ypos = mouseY;
-    //System.out.println(xpos +"," + ypos);
+    ypos = mouseY;    
     grid();
+    if(onBoard()) b=true;
     limitMovement();
     loc();
-    //System.out.println(xpos +"," + ypos);
-    //limitMovement();
+    
   }
   
   void grid(){
    xpos /= 34;
    xpos *= 34;
-   xpos -= 2;
    ypos /= 34;
    ypos *= 34;
-   ypos += 4;
-   //System.out.println(xpos +"," + ypos);
   }
   
   void limitMovement(){
+    if(b) stayOnBoard();
    if(xpos >= width) xpos = width-30; 
    if(xpos <= 0) xpos = 0;
    if(ypos >= height) ypos = height-30;
    if(ypos <= 0) ypos = 0;
+  }
+  
+  void stayOnBoard(){
+    if(xpos <= startx) xpos=startx;
+    if(ypos <= starty) ypos = starty;
+    if(ypos >= starty+306){
+      if(rotation != 2) ypos = starty+306;
+      else ypos = starty+274;
+    }
   }
   
   boolean drag(int x, int y){
@@ -62,11 +67,23 @@ public class Draggable{
   }
   
   void loc(){
-    
+    if(b) {
+      int l = ((xpos-startx)/34);
+      int num = ((ypos-starty)/34 + 1);
+      for(int i=0; i<locations.size(); i++){
+        if(i!=0){
+          if(rotation==1) l++;
+          else if(rotation==2) num+=1;
+        }
+        String letter = alphabet.substring(l,l+1);
+        locations.set(i,"" + letter+num);
+      }
+    }
   }
   
   boolean onBoard(){
-    return (xpos >= startx && xpos <= startx + 340 &&  ypos >= starty && ypos <= starty + 340);
+    if(rotation ==2) return (xpos >= startx && ypos >= starty && ypos <= starty+272);
+    return (xpos >= startx &&  ypos >= starty && ypos <= starty + 340);
   }
   
   void setVis(boolean v){

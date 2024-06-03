@@ -44,7 +44,7 @@ public class Board{
     
     void drawTarget(){
       if(target.visible){
-        System.out.println("target");
+        //System.out.println("target");
         image(target.image, target.xpos, target.ypos);
       }
     }

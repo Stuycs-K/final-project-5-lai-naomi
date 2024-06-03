@@ -33,7 +33,7 @@ public class Game{
     String print = "Phase: " + phase + "\nTarget: " + target;
     fill(0,0,0);
     text(print, 20, height-30);
-    text(mx + "," + my, 20, height-50);
+    //text(mx + "," + my, 20, height-50);
   }  
   
   void move(){
@@ -75,29 +75,38 @@ public class Game{
   void nextPhase(){
     if(phase=="setup"){
       phase = "player1";
-      player.setTurn(true);
     }
     else if(phase == "player1"){
       phase = "player2";
-      player.setTurn(false);
     }
     else if(phase == "player2"){
       phase = "player1";
-      player.setTurn(true);
     }
+    updatePhase();
   }
   
   void prevPhase(){
-     if(phase=="setup") phase = "player2";
+    if(phase=="setup") phase = "player2";
     if(phase == "player1") phase = "setup";
     if(phase == "player2") phase = "player1";
+    updatePhase();
+  }
+  
+  void updatePhase(){
+    if(phase == "setup" || phase == "player2") player.setTurn(false);
+    if(phase == "player1") player.setTurn(true);
   }
   
   void showLoc(){
     if(t){
       System.out.println("(x,y): " + target.xpos + "," + target.ypos);
       System.out.println("OnBoard: " + target.onBoard());
-      System.out.println("XN: " + target.getLoc() + "\n");
+      System.out.println("Rotation: " + target.rotation);
+      System.out.println("XN: " + target.getLoc() + "\n");      
     }
+  }
+  
+  void showCoor(){
+    System.out.println(mouseX + "," + mouseY);
   }
 }
