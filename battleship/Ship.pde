@@ -49,12 +49,6 @@ public class Ship extends Draggable{
     return "ship";
   }
   
-  void grid(){
-    super.grid();
-    xpos -=2; 
-    ypos += 4;
-  }
-  
   boolean onBoard(){
     if(rotation ==2) return ypos <= starty + 306;
    return super.onBoard() && xpos <= startx + 272; 
@@ -72,5 +66,11 @@ public class Ship extends Draggable{
   
   void setStarty(int y){
     starty = y;
+  }
+  
+  void grid(){
+    super.grid();    
+   xpos -=2; 
+    ypos += 4;
   }
 }
