@@ -4,12 +4,14 @@ public class Board{
     int xpos;
     int ypos;
     PImage grid = loadImage("grid.png");    
+    Target target;
     
     public Board(int x, int y){
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
       xpos = x;
       ypos = y;
+      target = new Target();
       
       grid.resize(380,0);
     }
@@ -29,11 +31,21 @@ public class Board{
         if(ship.visible==true){
           translate(ship.xpos, ship.ypos);
           pushMatrix();
-          if(ship.rotation == 2) rotate(PI/2.0);
-          image(ship.testShip, 0, 0);
+          if(ship.rotation == 2){
+            rotate(PI/2.0);
+            image(ship.image, 0, -34);
+          }
+          else image(ship.image, 0, 0);
           popMatrix();
           translate(-ship.xpos, -ship.ypos);
         }
+      }
+    }
+    
+    void drawTarget(){
+      if(target.visible){
+        //System.out.println("target");
+        image(target.image, target.xpos, target.ypos);
       }
     }
     
@@ -43,11 +55,21 @@ public class Board{
     
     void addShip(Ship[] s){
       for(Ship ship : s){
-        ships.add(ship);
+        addShip(ship);
       }
     }
     
     void addPin(Pin p){
       pins.add(p);
+    }
+    
+    void gridShips(){
+     for(Ship ship : ships){
+       ship.loc();
+     }
+    }
+    
+    void nameShips(){
+     for(Ship ship : ships) System.out.print("Ship "); 
     }
 }

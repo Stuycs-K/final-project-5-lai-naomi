@@ -1,13 +1,44 @@
-public class Target{
-  int xpos;
-  int ypos;
-  
+public class Target extends Draggable{  
+  //int xpos, ypos, startx, starty;
+  //PImage image;
+  //ArrayList<String> locations;
+  //boolean visible, b; // b: if the object is on the board  
+  //String alphabet = "ABCDEFGHIJK";
   public Target(){
-   xpos=0;
-   ypos=0;
+   visible = false;
+   image = loadImage("outline.png");
+   image.resize(0,34);
+   xpos = 168;
+   ypos = 39;
+   startx = 168;
+   starty = 39;
+   b=false;
+   rotation = -1;
+   
+   locations = new ArrayList<String>();
+   locations.add("");
   }
   
-  void drag(){
-    
+  String toString(){
+    return "target";
+  }
+  
+  void move(){
+    super.move();    
+  }
+  
+  void grid(){
+    super.grid();
+    xpos -= 2;
+    ypos += 6;
+  }
+  
+  boolean onBoard(){
+   return super.onBoard() && xpos <= startx + 306; 
+  }
+  
+  void stayOnBoard(){
+    super.stayOnBoard();
+    if(xpos >= startx + 306) xpos = startx + 306;
   }
 }
