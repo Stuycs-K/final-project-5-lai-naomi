@@ -15,6 +15,10 @@ void draw(){
   game.d();
 }
 
+void mouseClicked(){
+  game.b();
+}
+
 void mouseDragged(){
   game.move();
 }
@@ -42,8 +46,5 @@ void keyPressed(){
   if(key == '0'){
     System.out.println("reset");
     game = new Game();
-  }
-  if(key=='t'){
-    game.feature();
   }
 }

@@ -10,7 +10,7 @@ public class Ship extends Draggable{
    image = loadImage("boat.png");
    image.resize(0, 34);
    startx = 168;
-   starty = 445;
+   starty = 446;
    b=false;
    
    locations = new ArrayList<String>();
