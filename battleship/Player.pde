@@ -10,11 +10,7 @@ public class Player{
   }
   
   void confirmTarget(){
-    
-  }
-  
-  void confirmSetup(){
- 
+    String tloc = selection.locations.get(0);
   }
   
   void addShip(Ship s){

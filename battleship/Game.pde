@@ -107,6 +107,9 @@ public class Game{
   }
   
   void b(){
-    if(button.click(mouseX, mouseY)) nextPhase();
+    if(button.click(mouseX, mouseY)){
+      if(phase=="player1") player.confirmTarget();
+      nextPhase();
+    }
   }
 }
