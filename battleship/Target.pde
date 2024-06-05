@@ -8,15 +8,16 @@ public class Target extends Draggable{
    visible = false;
    image = loadImage("outline.png");
    image.resize(0,34);
-   xpos = 168;
-   ypos = 39;
    startx = 168;
    starty = 39;
-   b=false;
+   xpos=startx;
+   ypos=starty;
+   b=true;
    rotation = -1;
    
    locations = new ArrayList<String>();
    locations.add("");
+   loc();
   }
   
   String toString(){
@@ -27,12 +28,6 @@ public class Target extends Draggable{
     super.move();    
   }
   
-  void grid(){
-    super.grid();
-    xpos -= 2;
-    ypos += 6;
-  }
-  
   boolean onBoard(){
    return super.onBoard() && xpos <= startx + 306; 
   }
@@ -40,5 +35,14 @@ public class Target extends Draggable{
   void stayOnBoard(){
     super.stayOnBoard();
     if(xpos >= startx + 306) xpos = startx + 306;
+  }
+  
+  void grid(){
+   super.grid(); 
+   xpos -= 1.5;
+   ypos += 5;
+    String l = locations.get(0);
+    l = l.substring(1,2);
+   if(Integer.parseInt(l) >= 8) ypos -= 2;
   }
 }
