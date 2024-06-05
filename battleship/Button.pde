@@ -1,19 +1,19 @@
 public class Button{
- PImage image = loadImage("button.png");
+ PImage image = loadImage("rectangle.png");
  String display = "";
  int xpos = 15;
  int ypos = 15;
  
  public Button(){
    display = "End Setup";
-   image.resize(100, 60);
+   image.resize(100, 0);
  }
  
  void d(){
    image(image, xpos, ypos);
    int dx = xpos + image.width/4;
    int dy = ypos + image.height/2;
-   fill(0,0,0);
+   fill(255,255,255);
    text(display, dx, dy);
  }
  

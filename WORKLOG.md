@@ -1,6 +1,6 @@
 # Work Log
 
-## GROUP MEMBER 1
+## GROUP MEMBER 1 - Naomi
 
 ### 5/29
 
@@ -21,14 +21,12 @@
 ### 6/1
 1. fixed location-- when the ship is dragged, the location is accurately displayed. previously, ships on A1 would appear as B1.
 2. organized game-- main 'battleship' tab is less cluttered and created Game class
+3. draggable class-- incorporate ship dragging and target dragging
 
-
-## GROUP MEMBER 2
-
-### date x
-
-info
-
-### date y
-
-info
+### 6/2
+1. target dragging-- target can be dragged
+2. minor changes-- location, target dragging, board mechanics (staying on board, boundaries, rotation)
+3. began button-- clicking button enters next phase
+4. opponent ships-- opponents ships are randomly generated
+5. ship creation-- ships can be created using their grid location
+6. toggle opponent-- (for demo purposes) opponents ships can be toggled on/off
