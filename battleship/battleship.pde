@@ -1,6 +1,8 @@
 int setsize;
 Game game;
 boolean keyP;
+// 168, 39: start for opp board
+// 168, 446: start for player board
 
 void setup(){
   size(580,800);
