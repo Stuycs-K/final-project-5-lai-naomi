@@ -30,3 +30,7 @@
 4. opponent ships-- opponents ships are randomly generated
 5. ship creation-- ships can be created using their grid location
 6. toggle opponent-- (for demo purposes) opponents ships can be toggled on/off
+
+### 6/6
+1. completed pin-- constructs pins using location (ex. "A1")
+2. confirm target-- when target is confirmed, board's pins are updated and can be drawn
