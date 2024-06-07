@@ -86,6 +86,7 @@ public class Game{
   
   void setupPhase(){
     player.setTurn(false);
+    opponent.setTurn(false);
     button.setDisplay("End Setup");
   }
   

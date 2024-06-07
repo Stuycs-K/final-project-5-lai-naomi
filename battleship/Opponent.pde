@@ -1,20 +1,8 @@
-public class Opponent{
- boolean turn;
- Target selection;
- Board board;
- 
+public class Opponent extends Team{ 
  public Opponent(){
   turn = false;
   selection = new Target();
   board = new Board(setsize+10, 0);
- }
- 
- void wait(int x){
-   
- }
- 
- void confirmTarget(){
-   
  }
  
  void d(){
