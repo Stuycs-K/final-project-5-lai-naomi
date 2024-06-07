@@ -7,12 +7,11 @@ public class Player{
      turn = false;
      board = new Board(setsize+10, 5 + height/2);
      selection = board.target;
-     board.addPin(new Pin("A", 1, ""));
   }
   
   void confirmTarget(){
     String tloc = selection.locations.get(0);
-    System.out.println(tloc);
+    board.addPin(new Pin(tloc, ""));
   }
   
   void addShip(Ship s){

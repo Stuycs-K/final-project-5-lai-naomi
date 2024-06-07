@@ -20,4 +20,8 @@ public class Pin{
     ypos = starty + (n1-1) * 34;
     pinImage.resize(0, 34);
   }
+  
+  public Pin(String loc, String b){
+    this(loc.substring(0,1), Integer.parseInt(loc.substring(1,2)), b);
+  }
 }
