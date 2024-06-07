@@ -3,9 +3,10 @@ public class Team{
  Target selection;
  Board board;
  
- void confirmTarget(){
+ void confirmTarget(String team){
     String tloc = selection.locations.get(0);
-    board.addPin(new Pin(tloc, ""));
+    board.addPin(new Pin(tloc, team));
+    board.updateShips();
   }
   
   void setTurn(boolean t){

@@ -73,4 +73,8 @@ public class Ship extends Draggable{
    xpos -=2; 
     ypos += 4;
   }
+  
+  void addPin(int i){
+    pins[i] = 1;
+  }
 }

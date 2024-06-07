@@ -92,13 +92,16 @@ public class Game{
   
   void player1Phase(){
     player.setTurn(true);
+    opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
   }
   
   void player2Phase(){
     player.confirmTarget();
-   player.setTurn(false);
+    player.setTurn(false);
+    opponent.setTurn(true);
     button.setDisplay("");
+    //player.shipInfo();
   }
   
   void showLoc(){

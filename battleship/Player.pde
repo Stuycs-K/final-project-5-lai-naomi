@@ -5,6 +5,10 @@ public class Player extends Team{
      selection = board.target;
   }
   
+  void confirmTarget(){
+   super.confirmTarget("player");
+  }
+  
   void d(){
     board.drawGrid();
     board.drawShips();
