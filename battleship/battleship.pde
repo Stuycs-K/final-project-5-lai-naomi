@@ -49,4 +49,7 @@ void keyPressed(){
     System.out.println("reset");
     game = new Game();
   }
+  if(key == 't'){
+    game.toggle();
+  }
 }

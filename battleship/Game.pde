@@ -79,18 +79,25 @@ public class Game{
   }
   
   void updatePhase(){
-    if(phase == "setup"){
-      player.setTurn(false);
-      button.setDisplay("End Setup");
-    }
-    if(phase == "player2"){
-      player.setTurn(false);
-      button.setDisplay("");
-    }
-    if(phase == "player1"){
-      player.setTurn(true);
-      button.setDisplay("Confirm\nTarget");
-    }
+    if(phase == "setup") setupPhase();
+    if(phase == "player2") player2Phase();
+    if(phase == "player1") player1Phase();
+  }
+  
+  void setupPhase(){
+    player.setTurn(false);
+    button.setDisplay("End Setup");
+  }
+  
+  void player1Phase(){
+    player.setTurn(true);
+    button.setDisplay("Confirm\nTarget");
+  }
+  
+  void player2Phase(){
+    player.confirmTarget();
+   player.setTurn(false);
+    button.setDisplay("");
   }
   
   void showLoc(){
@@ -108,8 +115,11 @@ public class Game{
   
   void b(){
     if(button.click(mouseX, mouseY)){
-      if(phase=="player1") player.confirmTarget();
       nextPhase();
     }
+  }
+  
+  void toggle(){
+   opponent.shipVis(); 
   }
 }
