@@ -70,4 +70,12 @@ public class Ship extends Draggable{
   void addPin(int i){
     pins[i] = 1;
   }
+  
+  void d(){
+    if(rotation == 2){
+      rotate(PI/2.0);
+      image(image, 0, -34);
+    }
+    else image(image, 0, 0);
+  }
 }

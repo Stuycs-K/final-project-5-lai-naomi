@@ -35,11 +35,7 @@ public class Board{
         if(ship.visible==true){
           translate(ship.xpos, ship.ypos);
           pushMatrix();
-          if(ship.rotation == 2){
-            rotate(PI/2.0);
-            image(ship.image, 0, -34);
-          }
-          else image(ship.image, 0, 0);
+          ship.d();
           popMatrix();
           translate(-ship.xpos, -ship.ypos);
         }
