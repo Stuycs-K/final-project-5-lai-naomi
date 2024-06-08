@@ -33,6 +33,7 @@ public class Ship extends Draggable{
    locations = new ArrayList<String>();
    locations.add(letter1 + n1);
    locations.add(letter2 + n2);
+   //System.out.println(locations.get(0) + "  " + locations.get(1));
   }
   
   void sink(){

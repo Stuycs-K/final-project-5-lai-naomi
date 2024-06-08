@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Board{
     ArrayList<Pin> pins;
     String pinLocs;
@@ -70,8 +71,21 @@ public class Board{
       for(Ship ship : ships){
         String loc1 = ship.locations.get(0);
         String loc2 = ship.locations.get(1);
-        if(pinLocs.indexOf(loc1) != -1) ship.addPin(0);
-        if(pinLocs.indexOf(loc2) != -1) ship.addPin(1);
+        System.out.println(loc1 + " " + loc2);
+        if(pinLocs.indexOf(loc1) != -1){
+          ship.addPin(0);
+          System.out.println(1);
+        }
+        if(pinLocs.indexOf(loc2) != -1){
+          ship.addPin(1);
+          System.out.println(2);
       }
     }
+    }
+    
+  void shipInfo(){
+    for(Ship ship : ships){
+    System.out.println(Arrays.toString(ship.pins));
+    }
+  }
 }

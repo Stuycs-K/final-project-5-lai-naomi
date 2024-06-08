@@ -3,6 +3,7 @@ public class Opponent extends Team{
   turn = false;
   selection = new Target();
   board = new Board(setsize+10, 0);
+  oppBoard = new Board(setsize+10, 0);
  }
  
  void d(){
@@ -12,8 +13,7 @@ public class Opponent extends Team{
  }
  
  void ship(){
-   String alphabet = "ABCDEFGHIJK";
-   for(int i=0; i<5; i++){
+   for(int i=1; i<=1; i++){
      int index1, index2;
      int n1,n2;
      

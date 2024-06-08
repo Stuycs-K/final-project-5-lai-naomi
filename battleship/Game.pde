@@ -13,6 +13,8 @@ public class Game{
     phase = "setup";    
     player = new Player();
     opponent = new Opponent();  
+    player.setOpp(opponent);
+    opponent.setOpp(player);
     player.ship();
     opponent.ship();    
     t=false;
