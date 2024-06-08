@@ -26,4 +26,11 @@ public class Team{
  void setOpp(Team t){
    oppBoard = t.board;
  }
+ 
+ void ship(){
+    for(int i=0; i<5; i++){
+      Ship s = new Ship(34, 34*3+34*3*i);
+      board.addShip(s);
+    }
+  }
 }

@@ -16,11 +16,4 @@ public class Player extends Team{
     board.drawPins();
     board.drawTarget();
   }
-  
-  void ship(){
-    for(int i=0; i<5; i++){
-      Ship s = new Ship(34, 34*3+34*3*i, 2, true);
-      board.addShip(s);
-    }
-  }
 }

@@ -104,4 +104,16 @@ public class Draggable{
   void setStarty(int y){
     starty = y;
   }
+  
+  //takes "A1" and converts to its xpos/ypos  
+  int locX(String letter){
+     return alphabet.indexOf(letter) * 34 + startx;
+  }
+  
+  int locY(int num){
+    return starty + (num-1) * 34;
+  }
+  
+  //takes xpos/ypos and converts to "A1"
+  
 }
