@@ -27,8 +27,8 @@ public class Ship extends Draggable{
     image = loadImage("boat.png");
    image.resize(0, 34);
    b=false;
-   if(n1 != n2) rotation = 1;
-   else rotation = 2;
+   if(n1 != n2) rotation = 2;
+   else rotation = 1;
    
    locations = new ArrayList<String>();
    locations.add(letter1 + n1);

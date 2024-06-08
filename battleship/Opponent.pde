@@ -7,9 +7,9 @@ public class Opponent extends Team{
  }
  
  void d(){
-   board.drawGrid();
-   board.drawPins();
+   board.drawGrid();   
    board.drawShips();
+   board.drawPins();
  }
  
  void ship(){
@@ -24,11 +24,13 @@ public class Opponent extends Team{
      
      
      int chance = (int)(Math.random() * 2);
+     //System.out.println(chance);
      if(chance!=0) index2 = index1 + 1;
      else n2 = n1+1;
-     
+          
      String letter1 = alphabet.substring(index1, index1+1);
      String letter2 = alphabet.substring(index2, index2+1);
+     //System.out.println("Ship setuP: " + letter1 + n1 + " " + letter2 + n2); 
      
      Ship s = new Ship(letter1, n1, letter2, n2, 2, false);
      s.setStartx(168);

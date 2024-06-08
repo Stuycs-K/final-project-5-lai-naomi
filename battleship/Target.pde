@@ -36,8 +36,5 @@ public class Target extends Draggable{
    super.grid(); 
    xpos -= 1.5;
    ypos += 5;
-    String l = locations.get(0);
-    l = l.substring(1,2);
-   if(Integer.parseInt(l) >= 8) ypos -= 2;
   }
 }
