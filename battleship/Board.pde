@@ -32,7 +32,7 @@ public class Board{
     
     void drawShips(){
       for(Ship ship : ships){
-        if(ship.visible==true){
+        if(ship.visible){
           translate(ship.xpos, ship.ypos);
           pushMatrix();
           ship.d();
@@ -67,25 +67,18 @@ public class Board{
       for(Ship ship : ships){
         String loc1 = ship.locations.get(0);
         String loc2 = ship.locations.get(1);
-        //System.out.println(loc1 + " " + loc2);
-        //System.out.println(pinLocs);
         if(pinLocs.indexOf(loc1) != -1){
           ship.addPin(0);
-          //System.out.println(1);
         }
         if(pinLocs.indexOf(loc2) != -1){
           ship.addPin(1);
-          //System.out.println(2);
       }
     }
     }
     
   void shipInfo(){
     for(Ship ship : ships){
-      //for(String loc : ship.locations){
-      //  System.out.println("loc: " + loc);
-      //}
-      System.out.println(Arrays.toString(ship.pins));
+      ship.info();
     }
   }
   

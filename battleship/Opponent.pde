@@ -39,7 +39,7 @@ public class Opponent extends Team{
      s.setStarty(39);
      s.updatexy();
      board.addShip(s);
-     s.info();
+     //s.info();
    }
  }
  

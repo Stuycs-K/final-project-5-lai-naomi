@@ -20,7 +20,7 @@ public class Draggable{
     grid();
     if(onBoard()) b=true;
     limitMovement();
-    loc();    
+    loc(); //updates locations according to x and y  
   }
   
   void grid(){

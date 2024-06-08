@@ -30,6 +30,8 @@ public class Team{
  void ship(){
     for(int i=0; i<5; i++){
       Ship s = new Ship(34, 34*3+34*3*i);
+      s.setStartx(168);
+      s.setStarty(446);
       board.addShip(s);
     }
   }

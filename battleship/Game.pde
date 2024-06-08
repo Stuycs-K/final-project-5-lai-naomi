@@ -44,18 +44,16 @@ public class Game{
   }  
   
   void move(){
-    if(phase == 0){
-      if(!t){
+    if(phase == 0 && !t){
         Board pboard = player.board;
         for(Ship ship : pboard.ships){
            if(ship.drag(mouseX, mouseY)){
-           target = ship;
-           t=true;
-           break;
+             target = ship;
+             t=true;
+             break;
            }
          }
       }
-    }
     if(phase == 1){
       if(player.selection.drag(mouseX, mouseY)){
         target = player.selection;
