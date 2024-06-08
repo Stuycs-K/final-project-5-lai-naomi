@@ -8,7 +8,7 @@ public class Team{
     String tloc = selection.locations.get(0);
     oppBoard.addPin(new Pin(tloc, team));
     oppBoard.updateShips();
-    oppBoard.shipInfo();
+    //oppBoard.shipInfo();
     
     // confirm pin -> get p1 pin location -> compare p1 pin location with p2 ship locations -> update p2 ship locations
   }

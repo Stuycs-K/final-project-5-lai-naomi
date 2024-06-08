@@ -92,4 +92,16 @@ public class Draggable{
     xpos = startx + index * 34;
     ypos = starty + (n-1) * 34;
   }
+  
+  void updatexy(){
+    
+  }
+  
+  void setStartx(int x){
+    startx = x;
+  }
+  
+  void setStarty(int y){
+    starty = y;
+  }
 }

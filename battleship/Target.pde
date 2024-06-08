@@ -37,4 +37,19 @@ public class Target extends Draggable{
    xpos -= 1.5;
    ypos += 5;
   }
+  
+  void randomxy(){
+    int index;
+     int n;     
+     index = (int)(Math.random() * 9);
+     n = (int)(Math.random() * 9 + 1);
+          
+     String letter = alphabet.substring(index, index+1);
+     //System.out.println("Ship setuP: " + letter1 + n1 + " " + letter2 + n2); 
+    
+    locations.set(0, letter+n);
+    System.out.println(xpos+ ","+ypos);
+    updatexy();
+    setVis(true);
+  }
 }

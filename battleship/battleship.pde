@@ -1,6 +1,6 @@
-int setsize;
 Game game;
 boolean keyP;
+int setsize;
 // 168, 39: start for opp board
 // 168, 446: start for player board
 
@@ -10,7 +10,7 @@ void setup(){
   keyP = false;
   
   game = new Game();
-  }
+}
 
 void draw(){
   background(255);

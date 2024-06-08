@@ -61,14 +61,6 @@ public class Ship extends Draggable{
     if(xpos >= startx + 306 && rotation ==2) xpos = startx + 306;
   }
   
-  void setStartx(int x){
-    startx = x;
-  }
-  
-  void setStarty(int y){
-    starty = y;
-  }
-  
   void grid(){
     super.grid();    
    xpos -=2; 

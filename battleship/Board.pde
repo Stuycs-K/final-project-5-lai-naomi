@@ -92,4 +92,8 @@ public class Board{
       System.out.println(Arrays.toString(ship.pins));
     }
   }
+  
+  void randomT(){
+    target.randomxy();
+  }
 }

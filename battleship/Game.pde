@@ -1,6 +1,6 @@
 public class Game{  
-  String phase;
-  PImage lines;
+  int phase;
+  PImage lines = loadImage("lines.png");
   boolean t; //if there is a target
   Player player;
   Opponent opponent;
@@ -8,15 +8,18 @@ public class Game{
   Button button;
     
   public Game(){
-    lines = loadImage("lines.png");
     lines.resize(width, height);    
-    phase = "setup";    
+    phase = 0;    
+    
     player = new Player();
     opponent = new Opponent();  
+    
     player.setOpp(opponent);
-    opponent.setOpp(player);
     player.ship();
+    
+    opponent.setOpp(player);
     opponent.ship();    
+    
     t=false;
     button = new Button();
   }
@@ -30,13 +33,18 @@ public class Game{
   }
   
   void showInfo(){
-    String print = "Phase: " + phase + "\nTarget: " + target;
+    String p = "phase";
+    if(phase==0) p="setup";
+    if (phase==1) p="player1's turn";
+    if(phase==2) p="player2's turn";
+    
+    String print = "Phase: " + p + "\nTarget: " + target;
     fill(0,0,0);
     text(print, 20, height-30);
   }  
   
   void move(){
-    if(phase == "setup"){
+    if(phase == 0){
       if(!t){
         Board pboard = player.board;
         for(Ship ship : pboard.ships){
@@ -48,7 +56,7 @@ public class Game{
          }
       }
     }
-    if(phase == "player1"){
+    if(phase == 1){
       if(player.selection.drag(mouseX, mouseY)){
         target = player.selection;
         t=true;
@@ -67,23 +75,23 @@ public class Game{
   }
     
   void nextPhase(){
-    if(phase=="setup") phase = "player1";
-    else if(phase == "player1") phase = "player2";
-    else if(phase == "player2") phase = "player1";
+    if(phase==0) phase = 1;
+    else if(phase == 1) phase = 2;
+    else if(phase == 2) phase = 1;
     updatePhase();
   }
   
   void prevPhase(){
-    if(phase=="setup") phase = "player2";
-    if(phase == "player1") phase = "setup";
-    if(phase == "player2") phase = "player1";
+    if(phase==0) phase = 2;
+    if(phase == 1) phase = 0;
+    if(phase == 2) phase = 1;
     updatePhase();
   }
   
   void updatePhase(){
-    if(phase == "setup") setupPhase();
-    if(phase == "player2") player2Phase();
-    if(phase == "player1") player1Phase();
+    if(phase == 0) setupPhase();
+    if(phase == 2) player2Phase();
+    if(phase == 1) player1Phase();
   }
   
   void setupPhase(){
@@ -92,13 +100,14 @@ public class Game{
     button.setDisplay("End Setup");
   }
   
-  void player1Phase(){
+  void player1Phase(){ //end of player 2 functions
+    if(opponent.turn==true) opponent.confirmTarget();
     player.setTurn(true);
     opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
   }
   
-  void player2Phase(){
+  void player2Phase(){ // end of player 1 functions
     player.confirmTarget();
     player.setTurn(false);
     opponent.setTurn(true);
