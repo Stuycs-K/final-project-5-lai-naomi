@@ -37,8 +37,9 @@ public class Opponent extends Team{
      Ship s = new Ship(loc1,loc2);
      s.setStartx(168);
      s.setStarty(39);
+     s.updatexy();
      board.addShip(s);
-     s.updateLoc();
+     s.info();
    }
  }
  

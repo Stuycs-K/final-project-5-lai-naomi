@@ -85,16 +85,20 @@ public class Draggable{
     visible = v;
   }
   
-  void updateLoc(){
-    String letter = locations.get(0).substring(0,1);
-    int n = Integer.parseInt(locations.get(0).substring(1));
-    int index = alphabet.indexOf(letter);
-    xpos = startx + index * 34;
-    ypos = starty + (n-1) * 34;
+  void info(){
+    System.out.println(
+      "xpos,ypos: " + xpos + "," + ypos +
+      "\nstartx,starty: " + startx + "," + starty + 
+      "\nloc: " + locations.get(0) + 
+      "\nrotation " + rotation
+      );
   }
   
   void updatexy(){
-    
+    String letter = locations.get(0).substring(0,1);
+    int n = Integer.parseInt(locations.get(0).substring(1));
+    xpos = locX(letter);
+    ypos = locY(n);
   }
   
   void setStartx(int x){

@@ -1,5 +1,8 @@
 public class Ship extends Draggable{
   int[] pins; 
+  private Ship(){
+    
+  }
 
   public Ship(int x, int y){
    xpos = x;
