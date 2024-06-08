@@ -26,10 +26,10 @@ public class Game{
   
   void d(){
     image(lines, 0, 0); 
-    showInfo();
-    opponent.d();
-    player.d();
-    button.d();
+    showInfo(); //updates text
+    opponent.d(); //draws opponents board and pins. 
+    player.d(); // draws player's board, ships, and pins. 
+    button.d(); //draws button
   }
   
   void showInfo(){
