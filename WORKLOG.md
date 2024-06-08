@@ -34,3 +34,7 @@
 ### 6/6
 1. completed pin-- constructs pins using location (ex. "A1")
 2. confirm target-- when target is confirmed, board's pins are updated and can be drawn
+
+### 6/8
+1. oppBoard-- added to keep track of which ships are down
+2. updateships-- when the pin is confirmed, the ship's information is updated. if the pin location corresponds to a ship, the ship's pin info is updated.
