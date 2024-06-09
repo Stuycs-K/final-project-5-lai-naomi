@@ -6,8 +6,11 @@ public class Opponent extends Team{
   oppBoard = new Board(setsize+10, 0);
  }
  
+ void newTarget(){
+   board.randomT();
+ }
+ 
  boolean confirmTarget(){
-   board.randomT(); // random selection location
    return confirmTarget("opp");   
  }
  

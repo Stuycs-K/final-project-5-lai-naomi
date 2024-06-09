@@ -6,6 +6,7 @@ public class Game{
   Opponent opponent;
   Draggable target;
   Button button;
+  Popup popup;
     
   public Game(){
     lines.resize(width, height);    
@@ -73,10 +74,21 @@ public class Game{
   }
     
   void nextPhase(){
-    if(phase==0) phase = 1;
-    else if(phase == 1) phase = 2;
-    else if(phase == 2) phase = 1;
-    updatePhase();
+    if(possiblePhase()){
+      if(phase==0) phase = 1;
+      else if(phase == 1) phase = 2;
+      else if(phase == 2) phase = 1;
+      updatePhase();
+    }
+  }
+  
+  boolean possiblePhase(){
+    if(phase == 1) return(player.possibleTarget()); 
+    if(phase==2){
+      opponent.newTarget();
+      return opponent.possibleTarget();
+    }
+    return true;
   }
   
   void prevPhase(){
@@ -99,11 +111,7 @@ public class Game{
   }
   
   void player1Phase(){ //end of player 2 functions
-    if(opponent.turn==true){
-      while(opponent.confirmTarget() == false){
-        
-      }
-    }
+    if(opponent.turn==true) opponent.confirmTarget();
     player.setTurn(true);
     opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
