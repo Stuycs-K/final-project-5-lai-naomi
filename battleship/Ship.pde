@@ -78,8 +78,9 @@ public class Ship extends Draggable{
   
   void info(){
     super.info();
-    System.out.println(
-      "pins: " + Arrays.toString(pins)
+    System.out.print(
+      " " + locations.get(1) + 
+      "\npins: " + Arrays.toString(pins)
     );
   }
 }

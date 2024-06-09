@@ -21,6 +21,7 @@ public class Draggable{
     if(onBoard()) b=true;
     limitMovement();
     loc(); //updates locations according to x and y  
+    info();
   }
   
   void grid(){
@@ -63,14 +64,13 @@ public class Draggable{
   
   void loc(){
     if(b) {
-      int l = ((xpos-startx)/34);
-      int num = ((ypos-starty)/34 + 1);
+      String letter = toLocx(xpos);
+      int num = toLocy(ypos);
       for(int i=0; i<locations.size(); i++){
         if(i!=0){
-          if(rotation==1) l++;
+          if(rotation==1) letter = toLocx(xpos+34);
           else if(rotation==2) num+=1;
         }
-        String letter = alphabet.substring(l,l+1);
         locations.set(i,"" + letter+num);
       }
     }
@@ -86,11 +86,11 @@ public class Draggable{
   }
   
   void info(){
-    System.out.println(
+    System.out.print(
       "xpos,ypos: " + xpos + "," + ypos +
-      "\nstartx,starty: " + startx + "," + starty + 
-      "\nloc: " + locations.get(0) + 
-      "\nrotation " + rotation
+      "\nstartx,starty: " + startx + "," + starty +       
+      "\nrotation " + rotation +
+      "\nloc: " + locations.get(0)
       );
   }
   
@@ -119,5 +119,12 @@ public class Draggable{
   }
   
   //takes xpos/ypos and converts to "A1"
+  String toLocx(int xpos){
+    int index = ((xpos-startx)/34);
+    return alphabet.substring(index,index+1);
+  }
   
+  int toLocy(int ypos){
+    return ((ypos-starty)/34 + 1);
+  }
 }
