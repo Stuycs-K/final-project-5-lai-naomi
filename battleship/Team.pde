@@ -4,13 +4,19 @@ public class Team{
  Board board, oppBoard;
  String alphabet = "ABCDEFGHIJK";
  
- void confirmTarget(String team){
+ boolean confirmTarget(String team){
     String tloc = selection.locations.get(0);
     oppBoard.addPin(new Pin(tloc, team));
     oppBoard.updateShips();
     //oppBoard.shipInfo();
     
     // confirm pin -> get p1 pin location -> compare p1 pin location with p2 ship locations -> update p2 ship locations
+    return true;
+  }
+  
+  boolean possibleTarget(){
+   String tloc = selection.locations.get(0);
+   return !oppBoard.hasPin(tloc); 
   }
   
   void setTurn(boolean t){
@@ -35,4 +41,10 @@ public class Team{
       board.addShip(s);
     }
   }
+  
+  void shipVis(){
+   for(Ship ship : board.ships){
+     ship.setVis(!ship.visible);
+   }
+ }
 }

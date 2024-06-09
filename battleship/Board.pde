@@ -9,11 +9,15 @@ public class Board{
     Target target;
     
     public Board(int x, int y){
+      this(x,y,new Target());
+    }
+    
+    public Board(int x, int y, Target t){
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
       xpos = x;
       ypos = y;
-      target = new Target();      
+      target = t;      
       grid.resize(380,0);
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
@@ -26,7 +30,11 @@ public class Board{
     
     void drawPins(){
       for(Pin pin : pins){
-        image(pin.pinImage, pin.xpos, pin.ypos);
+        String location = pin.getLetter();
+        int num = pin.getNum();
+        int px = pin.alphabet.indexOf(location) * 34 + pin.startx;
+        int py = pin.starty + (num-1) * 34;
+        image(pin.pinImage, px,py);
       }
     }
     
@@ -50,9 +58,9 @@ public class Board{
       ships.add(s);
     }
     
-    void addShip(Ship[] s){
-      for(Ship ship : s) addShip(ship);
-    }
+    //void addShip(Ship[] s){
+    //  for(Ship ship : s) addShip(ship);
+    //}
     
     void addPin(Pin p){
       pins.add(p);
@@ -72,8 +80,9 @@ public class Board{
         }
         if(pinLocs.indexOf(loc2) != -1){
           ship.addPin(1);
+        }
+        ship.sink();
       }
-    }
     }
     
   void shipInfo(){
@@ -84,5 +93,9 @@ public class Board{
   
   void randomT(){
     target.randomxy();
+  }
+  
+  boolean hasPin(String tloc){
+   return !(pinLocs.indexOf(tloc) == -1);
   }
 }

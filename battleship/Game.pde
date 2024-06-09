@@ -1,11 +1,12 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t; //if there is a target
+  boolean t, p; //if there is a target/popup
   Player player;
   Opponent opponent;
   Draggable target;
   Button button;
+  Popup popup;
     
   public Game(){
     lines.resize(width, height);    
@@ -30,6 +31,7 @@ public class Game{
     opponent.d(); //draws opponents board and pins. 
     player.d(); // draws player's board, ships, and pins. 
     button.d(); //draws button
+    if(p) popup.d();
   }
   
   void showInfo(){
@@ -73,10 +75,37 @@ public class Game{
   }
     
   void nextPhase(){
-    if(phase==0) phase = 1;
-    else if(phase == 1) phase = 2;
-    else if(phase == 2) phase = 1;
-    updatePhase();
+    if(possiblePhase()){
+      if(phase==0) phase = 1;
+      else if(phase == 1) phase = 2;
+      else if(phase == 2) phase = 1;
+      updatePhase();
+    }
+    if(p){
+     popup = new Popup(); 
+    }
+  }
+  
+  boolean possiblePhase(){
+    boolean ans=true;
+    if(phase==0){
+      ArrayList<Ship> shipArr = player.board.ships;
+      for(Ship ship : shipArr){
+        if(ship.onBoard() == false) return false;
+      }
+    }
+    if(phase == 1){
+      ans =(player.possibleTarget()); 
+    }
+    if(phase==2){
+      ans = false;
+      while(!ans){
+        ans = opponent.possibleTarget();
+        opponent.newTarget();
+      }
+      ans=true;
+    }
+    return ans;
   }
   
   void prevPhase(){
@@ -113,19 +142,6 @@ public class Game{
     //player.shipInfo();
   }
   
-  void showLoc(){
-    if(t){
-      System.out.println("(x,y): " + target.xpos + "," + target.ypos);
-      System.out.println("OnBoard: " + target.onBoard());
-      System.out.println("Rotation: " + target.rotation);
-      System.out.println("XN: " + target.getLoc() + "\n");      
-    }
-  }
-  
-  void showCoor(){
-    System.out.println(mouseX + "," + mouseY);
-  }
-  
   void b(){
     if(button.click(mouseX, mouseY)){
       nextPhase();
@@ -134,5 +150,16 @@ public class Game{
   
   void toggle(){
    opponent.shipVis(); 
+  }
+  
+  void info(){
+    System.out.print("\nplayer pins: ");
+   for(Pin pin : player.board.pins){
+    System.out.print(pin.location); 
+   }
+   System.out.print("\nopponent pins: ");
+   for(Pin pin : opponent.board.pins){
+    System.out.println(pin.location); 
+   }
   }
 }

@@ -2,13 +2,16 @@ public class Opponent extends Team{
  public Opponent(){
   turn = false;
   selection = new Target();
-  board = new Board(setsize+10, 0);
+  board = new Board(setsize+10, 0, selection);
   oppBoard = new Board(setsize+10, 0);
  }
  
- void confirmTarget(){
-   board.randomT(); // random selection location
-   confirmTarget("opp");   
+ void newTarget(){
+   board.randomT();
+ }
+ 
+ boolean confirmTarget(){
+   return confirmTarget("opp");   
  }
  
  void d(){
@@ -38,14 +41,9 @@ public class Opponent extends Team{
      s.setStartx(168);
      s.setStarty(39);
      s.updatexy();
+     s.setVis(false);
      board.addShip(s);
      //s.info();
-   }
- }
- 
- void shipVis(){
-   for(Ship ship : board.ships){
-     ship.setVis(!ship.visible);
    }
  }
 }
