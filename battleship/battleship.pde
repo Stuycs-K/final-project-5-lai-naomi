@@ -30,13 +30,14 @@ void mouseReleased(){
 }
 
 void keyPressed(){
-  if(key == 'r'){
+  if(key == 'r'){ //resets game
     game.r();
   }
-  if(key == 'e'){
+  if(keyCode == RIGHT){
+    System.out.println(1);
    game.nextPhase();
   }  
-  if(key == 'q'){
+  if(keyCode == LEFT){
    game.prevPhase();
   }
   if(key == 'a'){
