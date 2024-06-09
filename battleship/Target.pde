@@ -36,8 +36,20 @@ public class Target extends Draggable{
    super.grid(); 
    xpos -= 1.5;
    ypos += 5;
-    String l = locations.get(0);
-    l = l.substring(1,2);
-   if(Integer.parseInt(l) >= 8) ypos -= 2;
+  }
+  
+  void randomxy(){
+    int index;
+     int n;     
+     index = (int)(Math.random() * 9);
+     n = (int)(Math.random() * 9 + 1);
+          
+     String letter = alphabet.substring(index, index+1);
+     //System.out.println("Ship setuP: " + letter1 + n1 + " " + letter2 + n2); 
+    
+    locations.set(0, letter+n);
+    System.out.println(xpos+ ","+ypos);
+    updatexy();
+    setVis(true);
   }
 }

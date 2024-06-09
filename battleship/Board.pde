@@ -1,6 +1,8 @@
+import java.util.Arrays;
 public class Board{
-    ArrayList<Pin> pins = new ArrayList<Pin>();
-    ArrayList<Ship> ships = new ArrayList<Ship>();
+    ArrayList<Pin> pins;
+    String pinLocs;
+    ArrayList<Ship> ships;
     int xpos;
     int ypos;
     PImage grid = loadImage("grid.png");    
@@ -13,6 +15,9 @@ public class Board{
       ypos = y;
       target = new Target();      
       grid.resize(380,0);
+      pins = new ArrayList<Pin>();
+      ships = new ArrayList<Ship>();
+      pinLocs = "";
     }
     
     void drawGrid(){      
@@ -27,14 +32,10 @@ public class Board{
     
     void drawShips(){
       for(Ship ship : ships){
-        if(ship.visible==true){
+        if(ship.visible){
           translate(ship.xpos, ship.ypos);
           pushMatrix();
-          if(ship.rotation == 2){
-            rotate(PI/2.0);
-            image(ship.image, 0, -34);
-          }
-          else image(ship.image, 0, 0);
+          ship.d();
           popMatrix();
           translate(-ship.xpos, -ship.ypos);
         }
@@ -55,13 +56,33 @@ public class Board{
     
     void addPin(Pin p){
       pins.add(p);
+      pinLocs += p.location;
     }
     
     void gridShips(){
      for(Ship ship : ships) ship.loc();
     }
     
-    void nameShips(){
-     for(Ship ship : ships) System.out.print("Ship "); 
+    void updateShips(){
+      for(Ship ship : ships){
+        String loc1 = ship.locations.get(0);
+        String loc2 = ship.locations.get(1);
+        if(pinLocs.indexOf(loc1) != -1){
+          ship.addPin(0);
+        }
+        if(pinLocs.indexOf(loc2) != -1){
+          ship.addPin(1);
+      }
     }
+    }
+    
+  void shipInfo(){
+    for(Ship ship : ships){
+      ship.info();
+    }
+  }
+  
+  void randomT(){
+    target.randomxy();
+  }
 }
