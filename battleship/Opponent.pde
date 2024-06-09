@@ -41,6 +41,7 @@ public class Opponent extends Team{
      s.setStartx(168);
      s.setStarty(39);
      s.updatexy();
+     s.setVis(false);
      board.addShip(s);
      //s.info();
    }

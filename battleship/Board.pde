@@ -80,8 +80,9 @@ public class Board{
         }
         if(pinLocs.indexOf(loc2) != -1){
           ship.addPin(1);
+        }
+        ship.sink();
       }
-    }
     }
     
   void shipInfo(){
