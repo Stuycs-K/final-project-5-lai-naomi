@@ -36,15 +36,12 @@ public class Target extends Draggable{
   
   void randomxy(){
     setVis(true);
-    int index;
-     int n;     
-     index = (int)(Math.random() * 9);
-     n = (int)(Math.random() * 9 + 1);
-          
+     int index = (int)(Math.random() * 10);
+     int n = (int)(Math.random() * 10 + 1);          
      String letter = alphabet.substring(index, index+1);   
-    locations.set(0, letter+n);
-     System.out.println(locations.get(0));
+     locations.set(0, letter+n);
+     //System.out.println(locations.get(0));
     updatexy();
-    System.out.println(xpos+ ","+ypos);    
+    //System.out.println(xpos+ ","+ypos);    
   }
 }

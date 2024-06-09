@@ -99,7 +99,11 @@ public class Game{
   }
   
   void player1Phase(){ //end of player 2 functions
-    if(opponent.turn==true) opponent.confirmTarget();
+    if(opponent.turn==true){
+      while(opponent.confirmTarget() == false){
+        
+      }
+    }
     player.setTurn(true);
     opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
@@ -121,5 +125,15 @@ public class Game{
   
   void toggle(){
    opponent.shipVis(); 
+  }
+  
+  void info(){
+   for(Pin pin : player.board.pins){
+    System.out.print(pin.location); 
+   }
+   System.out.print("\n");
+   for(Pin pin : opponent.board.pins){
+    System.out.println(pin.location); 
+   }
   }
 }

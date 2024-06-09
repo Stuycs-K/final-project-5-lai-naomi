@@ -4,14 +4,15 @@ public class Team{
  Board board, oppBoard;
  String alphabet = "ABCDEFGHIJK";
  
- void confirmTarget(String team){
+ boolean confirmTarget(String team){
     String tloc = selection.locations.get(0);
-    System.out.println("tloc: " + tloc);
+    if(oppBoard.hasPin(tloc)) return false;
     oppBoard.addPin(new Pin(tloc, team));
     oppBoard.updateShips();
     //oppBoard.shipInfo();
     
     // confirm pin -> get p1 pin location -> compare p1 pin location with p2 ship locations -> update p2 ship locations
+    return true;
   }
   
   void setTurn(boolean t){

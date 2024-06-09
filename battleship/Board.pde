@@ -30,7 +30,11 @@ public class Board{
     
     void drawPins(){
       for(Pin pin : pins){
-        image(pin.pinImage, pin.xpos, pin.ypos);
+        String location = pin.getLetter();
+        int num = pin.getNum();
+        int px = pin.alphabet.indexOf(location) * 34 + pin.startx;
+        int py = pin.starty + (num-1) * 34;
+        image(pin.pinImage, px,py);
       }
     }
     
@@ -88,5 +92,9 @@ public class Board{
   
   void randomT(){
     target.randomxy();
+  }
+  
+  boolean hasPin(String tloc){
+   return !(pinLocs.indexOf(tloc) == -1);
   }
 }

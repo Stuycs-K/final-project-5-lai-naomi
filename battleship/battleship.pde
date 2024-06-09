@@ -47,4 +47,7 @@ void keyPressed(){
   if(key == 't'){ //toggles opp ship visibility
     game.toggle();
   }
+  if(key=='i'){
+   game.info(); 
+  }
 }
