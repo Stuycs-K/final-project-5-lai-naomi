@@ -4,6 +4,9 @@ public class Popup extends Interactable{
  
  public Popup(){
    image = loadImage("popup.png");
-  image(image, xpos, ypos);
+ }
+ 
+ void d(){
+   image(image, xpos, ypos);
  }
 }

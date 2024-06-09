@@ -1,7 +1,7 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t; //if there is a target
+  boolean t, p; //if there is a target/popup
   Player player;
   Opponent opponent;
   Draggable target;
@@ -31,6 +31,7 @@ public class Game{
     opponent.d(); //draws opponents board and pins. 
     player.d(); // draws player's board, ships, and pins. 
     button.d(); //draws button
+    if(p) popup.d();
   }
   
   void showInfo(){
@@ -80,15 +81,33 @@ public class Game{
       else if(phase == 2) phase = 1;
       updatePhase();
     }
+    if(p){
+     popup = new Popup(); 
+    }
   }
   
   boolean possiblePhase(){
-    if(phase == 1) return(player.possibleTarget()); 
-    if(phase==2){
-      opponent.newTarget();
-      return opponent.possibleTarget();
+    boolean ans=true;
+    if(phase==0){
+      ArrayList<Ship> shipArr = player.board.ships;
+      for(Ship ship : shipArr){
+        if(ship.onBoard() == false) return false;
+      }
     }
-    return true;
+    if(phase == 1){
+    //  p =(player.possibleTarget()); 
+    //  return p;
+      ans=true;
+    }
+    if(phase==2){
+    //  boolean ans = false;
+    //  while(!ans){
+    //    ans = opponent.possibleTarget();
+    //    opponent.newTarget();
+    //  }
+      ans=true;
+    }
+    return ans;
   }
   
   void prevPhase(){
