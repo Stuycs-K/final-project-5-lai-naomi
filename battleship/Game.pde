@@ -95,16 +95,14 @@ public class Game{
       }
     }
     if(phase == 1){
-    //  p =(player.possibleTarget()); 
-    //  return p;
-      ans=true;
+      ans =(player.possibleTarget()); 
     }
     if(phase==2){
-    //  boolean ans = false;
-    //  while(!ans){
-    //    ans = opponent.possibleTarget();
-    //    opponent.newTarget();
-    //  }
+      ans = false;
+      while(!ans){
+        ans = opponent.possibleTarget();
+        opponent.newTarget();
+      }
       ans=true;
     }
     return ans;

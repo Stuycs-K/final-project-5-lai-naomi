@@ -8,6 +8,7 @@ public class Interactable{
     int rx = xpos + image.width;
     int uy = ypos;
     int dy = ypos + image.height;
+    rect(lx,uy, rx-lx, dy-uy);
     return(x >= lx && x <= rx && y >= uy && y <= dy);
   }
 }
