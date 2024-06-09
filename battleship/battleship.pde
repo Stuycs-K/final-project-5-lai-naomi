@@ -34,7 +34,6 @@ void keyPressed(){
     game.r();
   }
   if(keyCode == RIGHT){
-    System.out.println(1);
    game.nextPhase();
   }  
   if(keyCode == LEFT){

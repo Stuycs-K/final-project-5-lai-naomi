@@ -128,10 +128,11 @@ public class Game{
   }
   
   void info(){
+    System.out.print("\nplayer pins: ");
    for(Pin pin : player.board.pins){
     System.out.print(pin.location); 
    }
-   System.out.print("\n");
+   System.out.print("\nopponent pins: ");
    for(Pin pin : opponent.board.pins){
     System.out.println(pin.location); 
    }

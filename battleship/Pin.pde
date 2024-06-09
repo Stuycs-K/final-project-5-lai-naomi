@@ -9,7 +9,6 @@ public class Pin{
     starty = 39;
     if(b=="opp"){
       starty = 446;
-      //System.out.println("opp");
     }
     pinImage.resize(0, 34);
     location = letter1 + n1;

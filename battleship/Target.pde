@@ -40,8 +40,6 @@ public class Target extends Draggable{
      int n = (int)(Math.random() * 10 + 1);          
      String letter = alphabet.substring(index, index+1);   
      locations.set(0, letter+n);
-     //System.out.println(locations.get(0));
-    updatexy();
-    //System.out.println(xpos+ ","+ypos);    
+    updatexy();    
   }
 }
