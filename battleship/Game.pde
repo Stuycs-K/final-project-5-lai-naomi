@@ -1,7 +1,7 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t, p; //if there is a target/popup
+  boolean t, p, s; //if there is a target/popup/successful pin
   Player player;
   Opponent opponent;
   Draggable target;
@@ -128,18 +128,20 @@ public class Game{
   }
   
   void player1Phase(){ //end of player 2 functions
-    if(opponent.turn==true) opponent.confirmTarget();
+    if(opponent.turn==true) s = opponent.confirmTarget();
     player.setTurn(true);
     opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
+     System.out.println(s);
   }
   
   void player2Phase(){ // end of player 1 functions
-    player.confirmTarget();
+    s = player.confirmTarget();
     player.setTurn(false);
     opponent.setTurn(true);
     button.setDisplay("");
     //player.shipInfo();
+    System.out.println(s);
   }
   
   void b(){

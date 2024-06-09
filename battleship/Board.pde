@@ -71,18 +71,22 @@ public class Board{
      for(Ship ship : ships) ship.loc();
     }
     
-    void updateShips(){
+    boolean updateShips(){
+      boolean ans = false;
       for(Ship ship : ships){
         String loc1 = ship.locations.get(0);
         String loc2 = ship.locations.get(1);
         if(pinLocs.indexOf(loc1) != -1){
           ship.addPin(0);
+          ans=true;
         }
         if(pinLocs.indexOf(loc2) != -1){
           ship.addPin(1);
+          ans=true;
         }
         ship.sink();
       }
+      return ans;
     }
     
   void shipInfo(){
