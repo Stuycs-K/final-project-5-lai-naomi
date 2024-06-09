@@ -6,6 +6,7 @@ public class Team{
  
  void confirmTarget(String team){
     String tloc = selection.locations.get(0);
+    System.out.println("tloc: " + tloc);
     oppBoard.addPin(new Pin(tloc, team));
     oppBoard.updateShips();
     //oppBoard.shipInfo();
@@ -35,4 +36,10 @@ public class Team{
       board.addShip(s);
     }
   }
+  
+  void shipVis(){
+   for(Ship ship : board.ships){
+     ship.setVis(!ship.visible);
+   }
+ }
 }

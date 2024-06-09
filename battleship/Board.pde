@@ -9,11 +9,15 @@ public class Board{
     Target target;
     
     public Board(int x, int y){
+      this(x,y,new Target());
+    }
+    
+    public Board(int x, int y, Target t){
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
       xpos = x;
       ypos = y;
-      target = new Target();      
+      target = t;      
       grid.resize(380,0);
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
@@ -50,9 +54,9 @@ public class Board{
       ships.add(s);
     }
     
-    void addShip(Ship[] s){
-      for(Ship ship : s) addShip(ship);
-    }
+    //void addShip(Ship[] s){
+    //  for(Ship ship : s) addShip(ship);
+    //}
     
     void addPin(Pin p){
       pins.add(p);

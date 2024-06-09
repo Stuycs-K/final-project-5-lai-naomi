@@ -2,7 +2,7 @@ public class Opponent extends Team{
  public Opponent(){
   turn = false;
   selection = new Target();
-  board = new Board(setsize+10, 0);
+  board = new Board(setsize+10, 0, selection);
   oppBoard = new Board(setsize+10, 0);
  }
  
@@ -40,12 +40,6 @@ public class Opponent extends Team{
      s.updatexy();
      board.addShip(s);
      //s.info();
-   }
- }
- 
- void shipVis(){
-   for(Ship ship : board.ships){
-     ship.setVis(!ship.visible);
    }
  }
 }

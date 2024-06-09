@@ -7,7 +7,7 @@ public class Pin{
   public Pin(String letter1, int n1, String b){
     startx = 168;
     starty = 39;
-    if(b=="opponent"){
+    if(b=="opp"){
       starty = 446;
       System.out.println("opp");
     }

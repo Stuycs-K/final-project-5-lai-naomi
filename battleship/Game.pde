@@ -113,19 +113,6 @@ public class Game{
     //player.shipInfo();
   }
   
-  void showLoc(){
-    if(t){
-      System.out.println("(x,y): " + target.xpos + "," + target.ypos);
-      System.out.println("OnBoard: " + target.onBoard());
-      System.out.println("Rotation: " + target.rotation);
-      System.out.println("XN: " + target.getLoc() + "\n");      
-    }
-  }
-  
-  void showCoor(){
-    System.out.println(mouseX + "," + mouseY);
-  }
-  
   void b(){
     if(button.click(mouseX, mouseY)){
       nextPhase();

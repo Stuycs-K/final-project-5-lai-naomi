@@ -30,7 +30,7 @@ void mouseReleased(){
 }
 
 void keyPressed(){
-  if(key == 'r'){ //resets game
+  if(key == 'r'){ //rotates ship
     game.r();
   }
   if(keyCode == RIGHT){
@@ -40,17 +40,11 @@ void keyPressed(){
   if(keyCode == LEFT){
    game.prevPhase();
   }
-  if(key == 'a'){
-   game.showLoc(); 
-  }
-  if(key == 'd'){
-    System.out.println(mouseX + "," + mouseY);
-  }  
-  if(key == '0'){
+  if(key == '0'){ //resets game
     System.out.println("reset");
     game = new Game();
   }
-  if(key == 't'){
+  if(key == 't'){ //toggles opp ship visibility
     game.toggle();
   }
 }
