@@ -1,20 +1,13 @@
-public class Player{
-  boolean turn;
-  Target selection;
-  Board board;
-  
+public class Player extends Team{  
   public Player(){
      turn = false;
      board = new Board(setsize+10, 5 + height/2);
+     oppBoard = new Board(setsize+10, 5 + height/2);
      selection = board.target;
   }
   
   void confirmTarget(){
-    String tloc = selection.locations.get(0);
-  }
-  
-  void addShip(Ship s){
-    board.addShip(s);
+   super.confirmTarget("player");
   }
   
   void d(){
@@ -22,18 +15,5 @@ public class Player{
     board.drawShips();
     board.drawPins();
     board.drawTarget();
-  }
-  
-  void ship(){
-    for(int i=0; i<5; i++){
-      Ship s = new Ship(34, 34*3+34*3*i, 2, true);
-      board.addShip(s);
-    }
-  }
-  
-  void setTurn(boolean t){
-    turn = t;
-    if(turn) selection.setVis(true);
-    else selection.setVis(false);
   }
 }
