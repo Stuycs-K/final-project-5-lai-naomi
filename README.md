@@ -10,14 +10,17 @@ In my version of the game, the player competes against a computer (randomly gene
 
 ## Instructions
 
-setup phase: ships can be arranged\
-player 1's turn: drag the target (highlighted square) to guess. select "confirm target" to continue.\
-player 2's turn: select the button to continue. this causes the computer to randomly guess a position.\
+Setup phase: arrange the ships during setup! You may only arrange ships once, so choose wisely. The ships may be dragged with the mouse and rotated using 'r'. Select "End setup" to continue.\
+Player 1's turn: drag the target (highlighted square) to guess where your opponent's ships are. Select "confirm target" to continue.\
+Player 2's turn: select the button to continue. This causes the computer to randomly guess a position.
+
+If either you or the computer guesses a location correctly, their turn is repeated.
+
 ### Shortcuts
 0 - resets the game/begins a new game\
 t- toggles the opponent's ships on/off\
 r- rotates ship during setup\
-s- randomly sets up player's ships\
+s- randomly sets up player's ships
 
 ### Potential Bugs
 If the button does not work, that means the move is not valid! Make sure all ships have been placed and the target does not overlap with a previous guess (the target should not share a position with an existing pin).
