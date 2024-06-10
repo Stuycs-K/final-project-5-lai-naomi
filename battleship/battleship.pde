@@ -49,4 +49,7 @@ void keyPressed(){
   if(key=='i'){
    game.info(); 
   }
+   if(key=='s'){
+    game.randomShips(); 
+   }
 }

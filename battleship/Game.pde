@@ -168,4 +168,8 @@ public class Game{
     System.out.println(pin.location); 
    }
   }
+  
+  void randomShips(){
+   if(phase == 0) player.randomShips();
+  }
 }
