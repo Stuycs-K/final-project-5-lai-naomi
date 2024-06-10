@@ -95,6 +95,11 @@ public class Game{
       }
     }
     if(phase == 1){
+      if(s==true){
+        System.out.println(s);
+        s=false;
+        return false;
+      }
       ans =(player.possibleTarget()); 
     }
     if(phase==2){
@@ -132,7 +137,6 @@ public class Game{
     player.setTurn(true);
     opponent.setTurn(false);
     button.setDisplay("Confirm\nTarget");
-     System.out.println(s);
   }
   
   void player2Phase(){ // end of player 1 functions
@@ -141,7 +145,6 @@ public class Game{
     opponent.setTurn(true);
     button.setDisplay("");
     //player.shipInfo();
-    System.out.println(s);
   }
   
   void b(){
