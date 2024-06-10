@@ -21,6 +21,7 @@ public class Game{
     
     opponent.setOpp(player);
     opponent.ship();    
+    toggle();
     
     t=false;
     g=false;
@@ -127,9 +128,9 @@ public class Game{
     }
     if(phase==2){
       ans = false;
-      while(!ans){
-        ans = opponent.possibleTarget();
+      while(!ans){        
         opponent.newTarget();
+        ans = opponent.possibleTarget();
       }
       ans=true;
     }    
@@ -193,7 +194,7 @@ public class Game{
    }
    System.out.print("\nopponent pins: ");
    for(Pin pin : opponent.board.pins){
-    System.out.println(pin.location); 
+    System.out.print(pin.location); 
    }
   }
   

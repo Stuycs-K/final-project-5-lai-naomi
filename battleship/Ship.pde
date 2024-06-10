@@ -15,7 +15,7 @@ public class Ship extends Draggable{
   }  
   
   public Ship(String loc1, String loc2){
-    this(loc1.substring(0,1), Integer.parseInt(loc1.substring(1,2)), loc2.substring(0,1), Integer.parseInt(loc2.substring(1,2)));
+    this(loc1.substring(0,1), Integer.parseInt(loc1.substring(1)), loc2.substring(0,1), Integer.parseInt(loc2.substring(1)));
   }
   
   public Ship(String letter1, int n1, String letter2, int n2){
