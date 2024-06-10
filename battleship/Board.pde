@@ -7,6 +7,7 @@ public class Board{
     int ypos;
     PImage grid = loadImage("grid.png");    
     Target target;
+    int shipsLeft;
     
     public Board(int x, int y){
       this(x,y,new Target());
@@ -22,6 +23,7 @@ public class Board{
       pins = new ArrayList<Pin>();
       ships = new ArrayList<Ship>();
       pinLocs = "";
+      shipsLeft = ships.size();
     }
     
     void drawGrid(){      
@@ -56,11 +58,8 @@ public class Board{
     
     void addShip(Ship s){
       ships.add(s);
+      shipsLeft++;
     }
-    
-    //void addShip(Ship[] s){
-    //  for(Ship ship : s) addShip(ship);
-    //}
     
     boolean addPin(Pin p){
       pins.add(p);
@@ -85,7 +84,9 @@ public class Board{
           ship.addPin(1);
           if(pinLocs.indexOf(loc2) == pinLocs.length()-2) ans=true;
         }
-        ship.sink();
+        if(ans){
+          if(ship.sink()) shipsLeft--;
+        }
       }
       return ans;
     }

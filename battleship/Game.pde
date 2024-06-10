@@ -1,7 +1,7 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t, p; //if there is a target/popup
+  boolean t, p, g; //if there is a target/popup/game over
   Player player;
   Opponent opponent;
   Draggable target;
@@ -22,6 +22,8 @@ public class Game{
     opponent.ship();    
     
     t=false;
+    g=false;
+    p=false;
     button = new Button();
   }
   
@@ -74,7 +76,7 @@ public class Game{
     if(t) target.r();
   }
     
-  void nextPhase(){
+  void nextPhase(){    
     if(possiblePhase()){
       if(performAction() == true) return;
       if(phase==0) phase = 1;

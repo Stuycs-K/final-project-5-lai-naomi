@@ -21,7 +21,7 @@ public class Opponent extends Team{
  }
  
  void ship(){
-   super.ship(5, 168, 39);
+   super.ship(1, 168, 39);
    randomShips();
  }
 }
