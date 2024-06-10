@@ -33,7 +33,7 @@ public class Team{
  }
  
  void ship(){
-    for(int i=0; i<5; i++){
+    for(int i=1; i<=1; i++){
       Ship s = new Ship(34, 34*3+34*3*i);
       s.setStartx(168);
       s.setStarty(446);

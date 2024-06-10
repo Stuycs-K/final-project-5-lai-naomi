@@ -76,7 +76,6 @@ public class Game{
     
   void nextPhase(){
     if(possiblePhase()){
-      performAction();
       if(phase==0) phase = 1;
       else if(phase == 1) phase = 2;
       else if(phase == 2) phase = 1;
@@ -87,11 +86,6 @@ public class Game{
     }
   }
   
-  void performAction(){    
-    if(phase==1) s = player.confirmTarget();
-    if(phase==2 && opponent.turn==true) s = opponent.confirmTarget();
-  }
-  
   boolean possiblePhase(){
     boolean ans=true;
     if(phase==0){
@@ -100,7 +94,14 @@ public class Game{
         if(ship.onBoard() == false) return false;
       }
     }
-    if(phase == 1){      
+    if(phase == 1 || phase == 2){
+     System.out.println(s);
+     //if(s==true){        
+     //   s=false;
+     //   return false;
+     // }
+    }    
+    if(phase == 1){
       ans =(player.possibleTarget()); 
     }
     if(phase==2){
@@ -110,7 +111,7 @@ public class Game{
         opponent.newTarget();
       }
       ans=true;
-    }    
+    }
     return ans;
   }
   
