@@ -90,7 +90,8 @@ public class Game{
   void performAction(){    
     if(phase==1) s = player.confirmTarget();
     if(phase==2 && opponent.turn==true) s = opponent.confirmTarget();
-  }
+    System.out.println(s);  
+}
   
   boolean possiblePhase(){
     boolean ans=true;

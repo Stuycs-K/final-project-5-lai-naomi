@@ -34,7 +34,9 @@ public class Ship extends Draggable{
   }
   
   void sink(){
-    if(pins.equals(new int[]{1,1})) setVis(true);
+    if(Arrays.equals(pins,new int[]{1,1})){
+      setVis(true);
+    }
   }
   
   void r(){
