@@ -1,12 +1,11 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t, p, g; //if there is a target/popup/game over
+  boolean t, g; //if there is a target/game over
   Player player;
   Opponent opponent;
   Draggable target;
   Button button;
-  Popup popup;
   String winner;
     
   public Game(){
@@ -25,7 +24,6 @@ public class Game{
     
     t=false;
     g=false;
-    p=false;
     button = new Button();
   }
   
@@ -35,7 +33,6 @@ public class Game{
     opponent.d(); //draws opponents board and pins. 
     player.d(); // draws player's board, ships, and pins. 
     button.d(); //draws button
-    if(p) popup.d();
   }
   
   void showInfo(){
@@ -46,7 +43,7 @@ public class Game{
     if(phase==4) p="player 2 wins!";
     if(phase==5) p = "player 1 wins!";
     
-    String print = "Phase: " + p + "\nTarget: " + target;
+    String print = "Phase: " + p ;
     fill(0,0,0);
     text(print, 20, height-30);
   }  
@@ -91,9 +88,6 @@ public class Game{
       else if(phase == 2) phase = 1;
       updatePhase();
     }
-    if(p){
-     popup = new Popup(); 
-    }
   }
   
   boolean performAction(){    
@@ -137,13 +131,6 @@ public class Game{
     return ans;
   }
   
-  void prevPhase(){
-    if(phase==0) phase = 2;
-    if(phase == 1) phase = 0;
-    if(phase == 2) phase = 1;
-    updatePhase();
-  }
-  
   void updatePhase(){
     if(phase == 0) setupPhase();
     else if(phase == 2) player2Phase();
@@ -167,7 +154,6 @@ public class Game{
     player.setTurn(false);
     opponent.setTurn(true);
     button.setDisplay("");
-    //player.shipInfo();
   }
   
   void gameOver(){
@@ -185,17 +171,6 @@ public class Game{
   
   void toggle(){
    opponent.shipVis(); 
-  }
-  
-  void info(){
-    System.out.print("\nplayer pins: ");
-   for(Pin pin : player.board.pins){
-    System.out.print(pin.location); 
-   }
-   System.out.print("\nopponent pins: ");
-   for(Pin pin : opponent.board.pins){
-    System.out.print(pin.location); 
-   }
   }
   
   void randomShips(){

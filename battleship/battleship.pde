@@ -33,21 +33,11 @@ void keyPressed(){
   if(key == 'r'){ //rotates ship
     game.r();
   }
-  if(keyCode == RIGHT){
-   game.nextPhase();
-  }  
-  if(keyCode == LEFT){
-   game.prevPhase();
-  }
   if(key == '0'){ //resets game
-    System.out.println("reset");
     game = new Game();
   }
   if(key == 't'){ //toggles opp ship visibility
     game.toggle();
-  }
-  if(key=='i'){
-   game.info(); 
   }
    if(key=='s'){
     game.randomShips(); 

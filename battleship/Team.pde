@@ -7,9 +7,6 @@ public class Team{
  boolean confirmTarget(String team){
     String tloc = selection.locations.get(0);
     boolean ans = oppBoard.addPin(new Pin(tloc, team));
-    //System.out.println(oppBoard.shipsLeft);
-    //oppBoard.shipInfo();    
-    // confirm pin -> get p1 pin location -> compare p1 pin location with p2 ship locations -> update p2 ship locations
     return ans;
   }
   
@@ -23,10 +20,6 @@ public class Team{
     if(turn) selection.setVis(true);
     else selection.setVis(false);
   }
-  
-   void wait(int x){
-   
- }
  
  void setOpp(Team t){
    oppBoard = t.board;
@@ -93,28 +86,7 @@ public class Team{
      s.setStartx(startx);
      s.setStarty(starty);
      s.updatexy();
-     //s.info();
      ships.set(i, s);
    }
-   //System.out.println(shipLocs);
- }
- 
- String randomLoc(){
-   int index1 = (int)(Math.random() * 9);
-     String letter1 = alphabet.substring(index1, index1+1);
-     int n1 = (int)(Math.random() * 9 + 1);     
-     String loc1 = letter1+n1;
-     return loc1;
- }
- 
- String randomLoc(String loc1, int chance){
-     int index = alphabet.indexOf(loc1.substring(0,1));     
-     int n = Integer.parseInt(loc1.substring(1));     
-     
-     if(chance != 0) index++;
-     else n++; 
-     
-     String letter = alphabet.substring(index, index+1);
-     return letter + n;
  }
 }

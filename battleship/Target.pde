@@ -15,10 +15,6 @@ public class Target extends Draggable{
    loc();
   }
   
-  String toString(){
-    return "target";
-  }
-  
   boolean onBoard(){
    return super.onBoard() && xpos <= startx + 306; 
   }

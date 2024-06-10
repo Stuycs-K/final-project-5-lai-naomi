@@ -87,19 +87,12 @@ public class Board{
             if(pinLocs.indexOf(loc2) == pinLocs.length()-x) ans=true;
           }      
           if(ans){
-            //System.out.println(pinLocs);
             if(ship.sink()) shipsLeft--;
           }
         }
       }
       return ans;
     }
-    
-  void shipInfo(){
-    for(Ship ship : ships){
-      ship.info();
-    }
-  }
   
   void randomT(){
     target.randomxy();

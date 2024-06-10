@@ -9,10 +9,6 @@ public class Draggable{
    
  }
  
- String toString(){
-  return "draggable"; 
- }
- 
  void move(){
     xpos = mouseX; 
     ypos = mouseY;    
@@ -20,7 +16,6 @@ public class Draggable{
     if(onBoard()) b=true;
     limitMovement();
     loc(); //updates locations according to x and y  
-    //info();
   }
   
   void grid(){
@@ -82,15 +77,6 @@ public class Draggable{
   
   void setVis(boolean v){
     visible = v;
-  }
-  
-  void info(){
-    System.out.print(
-      "xpos,ypos: " + xpos + "," + ypos +
-      "\nstartx,starty: " + startx + "," + starty +       
-      "\nrotation " + rotation +
-      "\nloc: " + locations.get(0)
-      );
   }
   
   void updatexy(){

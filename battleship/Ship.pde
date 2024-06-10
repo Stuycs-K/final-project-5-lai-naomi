@@ -39,7 +39,6 @@ public class Ship extends Draggable{
   
   boolean sink(){
     if(Arrays.equals(pins,new int[]{1,1})){
-      System.out.println("sink");
       setVis(true);
       return true;
     }
@@ -50,10 +49,6 @@ public class Ship extends Draggable{
     rotation++; //1: horizontal 2: vertical
     if(rotation >2) rotation = 1;
     loc();
-  }
-  
-  String toString(){
-    return "ship";
   }
   
   boolean onBoard(){
@@ -83,13 +78,5 @@ public class Ship extends Draggable{
       image(image, 0, -34);
     }
     else image(image, 0, 0);
-  }
-  
-  void info(){
-    super.info();
-    System.out.print(
-      " " + locations.get(1) + 
-      "\npins: " + Arrays.toString(pins)
-    );
   }
 }
