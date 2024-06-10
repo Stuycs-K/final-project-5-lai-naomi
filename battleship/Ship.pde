@@ -33,8 +33,13 @@ public class Ship extends Draggable{
     locations.add(letter2 + n2);
   }
   
+  boolean sunk(){
+    return Arrays.equals(pins,new int[]{1,1});
+  }
+  
   boolean sink(){
     if(Arrays.equals(pins,new int[]{1,1})){
+      System.out.println("sink");
       setVis(true);
       return true;
     }

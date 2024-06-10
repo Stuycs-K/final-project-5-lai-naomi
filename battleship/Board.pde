@@ -75,18 +75,21 @@ public class Board{
     boolean updateShips(){
       boolean ans = false;
       for(Ship ship : ships){
-        String loc1 = ship.locations.get(0) + ",";
-        String loc2 = ship.locations.get(1)+ ",";
-        if(pinLocs.indexOf(loc1) != -1){
-          ship.addPin(0);
-          if(pinLocs.indexOf(loc1) == pinLocs.length()-2) ans=true;
-        }
-        if(pinLocs.indexOf(loc2) != -1){
-          ship.addPin(1);
-          if(pinLocs.indexOf(loc2) == pinLocs.length()-2) ans=true;
-        }
-        if(ans){
-          if(ship.sink()) shipsLeft--;
+        if(ship.sunk() == false){
+          String loc1 = ship.locations.get(0) + ",";
+          String loc2 = ship.locations.get(1)+ ",";
+          if(pinLocs.indexOf(loc1) != -1){
+            ship.addPin(0);
+            if(pinLocs.indexOf(loc1) == pinLocs.length()-3) ans=true;
+          }
+          if(pinLocs.indexOf(loc2) != -1){
+            ship.addPin(1);
+            if(pinLocs.indexOf(loc2) == pinLocs.length()-3) ans=true;
+          }      
+          if(ans){
+            //System.out.println(pinLocs);
+            if(ship.sink()) shipsLeft--;
+          }
         }
       }
       return ans;
