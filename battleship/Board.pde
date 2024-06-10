@@ -65,14 +65,14 @@ public class Board{
       pins.add(p);
       pinLocs += p.location;
       pinLocs += ",";
-      return updateShips();
+      return updateShips(p.location.length() + 1);
     }
     
     void gridShips(){
      for(Ship ship : ships) ship.loc();
-    }
+    }    
     
-    boolean updateShips(){
+    boolean updateShips(int x){
       boolean ans = false;
       for(Ship ship : ships){
         if(ship.sunk() == false){
@@ -80,11 +80,11 @@ public class Board{
           String loc2 = ship.locations.get(1)+ ",";
           if(pinLocs.indexOf(loc1) != -1){
             ship.addPin(0);
-            if(pinLocs.indexOf(loc1) == pinLocs.length()-3) ans=true;
+            if(pinLocs.indexOf(loc1) == pinLocs.length()-x) ans=true;
           }
           if(pinLocs.indexOf(loc2) != -1){
             ship.addPin(1);
-            if(pinLocs.indexOf(loc2) == pinLocs.length()-3) ans=true;
+            if(pinLocs.indexOf(loc2) == pinLocs.length()-x) ans=true;
           }      
           if(ans){
             //System.out.println(pinLocs);
