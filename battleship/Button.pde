@@ -1,9 +1,11 @@
 public class Button extends Interactable{ 
  String display = ""; 
+ boolean c;
  
  public Button(){
    image = loadImage("rectangle.png");
    display = "End Setup";
+   c=true;
    image.resize(100, 0);
  }
  
@@ -17,5 +19,14 @@ public class Button extends Interactable{
   
   void setDisplay(String str){
     display = str;
+  }
+  
+  boolean click(int x, int y){
+    if(c) return super.click(x, y);
+    return false;
+  }
+  
+  void noClick(){
+    c=false;
   }
 }
