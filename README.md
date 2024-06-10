@@ -21,3 +21,6 @@ s- randomly sets up player's ships\
 
 ### Potential Bugs
 If the button does not work, that means the move is not valid! Make sure all ships have been placed and the target does not overlap with a previous guess (the target should not share a position with an existing pin).
+
+## Presentation Link
+This is my presentation: [battleship](https://drive.google.com/file/d/1kKMmbx0ex4Xkh77gCbiSl7HosK5ne9fH/view?usp=sharing).
