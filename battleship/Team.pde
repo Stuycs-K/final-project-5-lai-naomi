@@ -31,10 +31,18 @@ public class Team{
  }
  
  void ship(){
-    for(int i=1; i<=1; i++){
+  ship(1);
+ }
+ 
+ void ship(int x){
+   ship(x, 168, 446);
+  }
+  
+  void ship(int x, int startx, int starty){
+    for(int i=1; i<=x; i++){
       Ship s = new Ship(34, 34*3+34*3*i);
-      s.setStartx(168);
-      s.setStarty(446);
+      s.setStartx(startx);
+      s.setStarty(starty);
       board.addShip(s);
     }
   }
@@ -69,7 +77,7 @@ public class Team{
      s.setStartx(startx);
      s.setStarty(starty);
      s.updatexy();
-     s.info();
+     //s.info();
      ships.set(i, s);
    }
  }
