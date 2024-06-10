@@ -1,7 +1,7 @@
 public class Game{  
   int phase;
   PImage lines = loadImage("lines.png");
-  boolean t, p, s; //if there is a target/popup/successful pin
+  boolean t, p; //if there is a target/popup
   Player player;
   Opponent opponent;
   Draggable target;
@@ -76,7 +76,7 @@ public class Game{
     
   void nextPhase(){
     if(possiblePhase()){
-      performAction();
+      if(performAction() == true) return;
       if(phase==0) phase = 1;
       else if(phase == 1) phase = 2;
       else if(phase == 2) phase = 1;
@@ -87,10 +87,11 @@ public class Game{
     }
   }
   
-  void performAction(){    
+  boolean performAction(){    
+    boolean s = false;
     if(phase==1) s = player.confirmTarget();
     if(phase==2 && opponent.turn==true) s = opponent.confirmTarget();
-    System.out.println(s);  
+    return s;
 }
   
   boolean possiblePhase(){
