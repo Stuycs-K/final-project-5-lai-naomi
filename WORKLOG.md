@@ -38,3 +38,10 @@
 ### 6/8
 1. oppBoard-- added to keep track of which ships are down
 2. updateships-- when the pin is confirmed, the ship's information is updated. if the pin location corresponds to a ship, the ship's pin info is updated.
+
+### 6/9
+1. fixed opponent pins-- the pins appear on the right board
+2. sink ships-- if the player has guessed each of a ship's pins, the ship sinks and is visible to opposing team
+3. restrictions-- the next phase can only be entered is all ships have been placed and a successful target is chosen
+4. reformatted random ships
+5. game over-- when no ships remain, game is over!
