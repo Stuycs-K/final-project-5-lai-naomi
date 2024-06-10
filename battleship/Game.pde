@@ -7,6 +7,7 @@ public class Game{
   Draggable target;
   Button button;
   Popup popup;
+  String winner;
     
   public Game(){
     lines.resize(width, height);    
@@ -41,6 +42,8 @@ public class Game{
     if(phase==0) p="setup";
     if (phase==1) p="player1's turn";
     if(phase==2) p="player2's turn";
+    if(phase==4) p="player 2 wins!";
+    if(phase==5) p = "player 1 wins!";
     
     String print = "Phase: " + p + "\nTarget: " + target;
     fill(0,0,0);
@@ -78,7 +81,10 @@ public class Game{
     
   void nextPhase(){    
     if(possiblePhase()){
-      if(performAction() == true) return;
+      if(performAction() == true){
+        if(g) gameOver();
+        return;
+      }
       if(phase==0) phase = 1;
       else if(phase == 1) phase = 2;
       else if(phase == 2) phase = 1;
@@ -93,8 +99,20 @@ public class Game{
     boolean s = false;
     if(phase==1) s = player.confirmTarget();
     if(phase==2 && opponent.turn==true) s = opponent.confirmTarget();
+    if(s) updateg();
     return s;
-}
+  }
+  
+  void updateg(){
+   if(player.board.shipsLeft == 0){
+     g=true;
+     phase = 4;
+   }
+   if(opponent.board.shipsLeft == 0){
+     g=true;
+     phase = 5;
+   }
+  }
   
   boolean possiblePhase(){
     boolean ans=true;
@@ -127,8 +145,9 @@ public class Game{
   
   void updatePhase(){
     if(phase == 0) setupPhase();
-    if(phase == 2) player2Phase();
-    if(phase == 1) player1Phase();
+    else if(phase == 2) player2Phase();
+    else if(phase == 1) player1Phase();
+    else gameOver();
   }
   
   void setupPhase(){
@@ -148,6 +167,13 @@ public class Game{
     opponent.setTurn(true);
     button.setDisplay("");
     //player.shipInfo();
+  }
+  
+  void gameOver(){
+    player.setTurn(false);
+    player.setTurn(false);
+    button.noClick();
+    button.setDisplay("Game Over");
   }
   
   void b(){
