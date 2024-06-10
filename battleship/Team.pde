@@ -8,9 +8,9 @@ public class Team{
     String tloc = selection.locations.get(0);
     boolean ans = oppBoard.addPin(new Pin(tloc, team));
     //System.out.println(oppBoard.shipsLeft);
-    return ans;
     //oppBoard.shipInfo();    
     // confirm pin -> get p1 pin location -> compare p1 pin location with p2 ship locations -> update p2 ship locations
+    return ans;
   }
   
   boolean possibleTarget(){
@@ -33,7 +33,7 @@ public class Team{
  }
  
  void ship(){
-  ship(1);
+  ship(5);
  }
  
  void ship(int x){
@@ -54,38 +54,6 @@ public class Team{
      ship.setVis(!ship.visible);
    }
  }
- 
- //void randomShips(){
- //  ArrayList<Ship> ships = board.ships;
- //  String shipLocs = "";
- //  for(int i=0; i<ships.size(); i++){
- //    boolean valid = false;
- //    String loc1 = "";
- //    String loc2 = "";
- //    int startx = ships.get(0).startx;
- //    int starty = ships.get(0).starty;
- //    while(valid == false){      
-       
- //      loc1 = randomLoc();
- //      while(shipLocs.indexOf(loc1) != -1) loc1 = randomLoc();
- //      shipLocs += loc1;
-       
- //      int chance = (int)(Math.random() * 2);
- //      loc2 = randomLoc(loc1, chance);
- //      if(shipLocs.indexOf(loc2) != -1) valid = true;
- //    }     
-     
- //    shipLocs += loc2;
-     
- //    Ship s = new Ship(loc1,loc2);
- //    s.setStartx(startx);
- //    s.setStarty(starty);
- //    s.updatexy();
- //    //s.info();
- //    ships.set(i, s);     
- //  }
- //  System.out.println(shipLocs);
- //}
  
   void randomShips(){
    ArrayList<Ship> ships = board.ships;
@@ -128,7 +96,7 @@ public class Team{
      //s.info();
      ships.set(i, s);
    }
-   System.out.println(shipLocs);
+   //System.out.println(shipLocs);
  }
  
  String randomLoc(){
