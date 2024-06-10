@@ -64,6 +64,7 @@ public class Board{
     boolean addPin(Pin p){
       pins.add(p);
       pinLocs += p.location;
+      pinLocs += ",";
       return updateShips();
     }
     
@@ -74,8 +75,8 @@ public class Board{
     boolean updateShips(){
       boolean ans = false;
       for(Ship ship : ships){
-        String loc1 = ship.locations.get(0);
-        String loc2 = ship.locations.get(1);
+        String loc1 = ship.locations.get(0) + ",";
+        String loc2 = ship.locations.get(1)+ ",";
         if(pinLocs.indexOf(loc1) != -1){
           ship.addPin(0);
           if(pinLocs.indexOf(loc1) == pinLocs.length()-2) ans=true;
